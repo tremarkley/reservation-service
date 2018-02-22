@@ -1,6 +1,9 @@
 ## MAC files ##
 .DS_Store
 
+## VS Code Files ##
+.vscode
+
 ## NPM ##
 npm
 npm-debug.log
