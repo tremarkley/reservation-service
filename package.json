@@ -8,8 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node ./server/server.js",
     "seed": "knex seed:run",
-    "dev-server": "nodemon ./server/server.js" 
+    "dev-server": "nodemon ./server/server.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.2",
@@ -22,6 +24,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.2",
     "nodemon": "^1.15.1"
   }
 }
