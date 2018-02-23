@@ -6,14 +6,14 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://hmarkley:@localhost:5432/reservations_test',
     seeds: {
-      directory: path.join(__dirname, '/public/db/seeds/test'),
+      directory: path.join(__dirname, '/db/seeds/test'),
     },
   },
   development: {
     client: 'pg',
     connection: 'postgres://hmarkley:@localhost:5432/reservations',
     seeds: {
-      directory: path.join(__dirname, '/public/db/seeds'),
+      directory: path.join(__dirname, '/db/seeds'),
     },
   },
 };
