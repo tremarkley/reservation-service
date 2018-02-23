@@ -6,7 +6,7 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://hmarkley:@localhost:5432/reservations',
     seeds: {
-      directory: path.join(__dirname, '/seeds'),
+      directory: path.join(__dirname, '/public/db/seeds'),
     },
   },
 };
