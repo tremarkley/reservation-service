@@ -24,7 +24,8 @@ function getReservationDataForMonth(knex, listingId, month, year) {
         for (let i = 0; i < dateIdObjects.length; i += 1) {
           dateIds.push(dateIdObjects[i].id);
         }
-        return knex('reservations').where({ listing_id: listingId }).select('listing_id', 'date_id', 'price', 'available').whereIn('date_id', dateIds)})
+        return knex('reservations').where({ listing_id: listingId }).select('listing_id', 'date_id', 'price', 'available').whereIn('date_id', dateIds);
+      })
       .then(reservations => resolve(reservations))
       .catch(err => reject(err));
   });
