@@ -12,7 +12,8 @@ CREATE TABLE dates (
   id SERIAL UNIQUE PRIMARY KEY,
   month INTEGER NOT NULL,
   day INTEGER NOT NULL,
-  year INTEGER NOT NULL
+  year INTEGER NOT NULL,
+  date date NOT NULL
 );
 
 CREATE TABLE reservations (

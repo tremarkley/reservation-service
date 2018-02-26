@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node ./server/server.js",
-    "seed": "knex seed:run --env dev",
+    "seed": "knex seed:run --env development",
     "dev-server": "nodemon ./server/server.js",
     "test": "jest",
     "dev": "webpack -d --watch",
