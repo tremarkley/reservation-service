@@ -4,27 +4,31 @@
   left: 0px;
   right: 0px;
   z-index: 1;
-  border-top: 1px solid grey;
+  border-top: 1px solid #DBDBDB ;
   height: 10%;
+  background-color: #ffffff;
 }
 
 .content {
   margin: 0 20%;
-  padding: 12px 0;
+  padding: 11px 0;
   height: 72%;
 }
 
 .bookButton {
   float: right;
   height: 100%;
-  width: 175px;
+  width: 180px;
   background: #FF5A5F;
   border: none;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   border-radius: 4px;
   font-weight: 350;
   font-size: 18px;
+  line-height: 22px;
+  padding-left: 8px;
+  padding-right: 8px;
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
   cursor: pointer;
 }
