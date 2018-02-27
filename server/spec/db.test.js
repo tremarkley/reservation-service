@@ -7,7 +7,7 @@ describe('Database Controller Methods', () => {
   beforeEach(done => knex.seed.run()
     .then(() => done()));
 
-  describe('getReservationDataForMonth returns reservation object', () => {
+  describe('getReservationDataForMonth', () => {
     it('Should return object containing all reservations inside the reservations db', () =>
       reservations.getReservationDataForMonth(1, 1, 2018)
         .then((reservationsArray) => {
@@ -23,5 +23,14 @@ describe('Database Controller Methods', () => {
           }
         }));
   });
-});
 
+  describe('makeReservation', () => {
+    it('Should throw an error if dates are not all available', () => {
+      expect.hasAssertions();
+      return reservations.makeReservation(1, '1-1-2018', '1-4-2018')
+        .catch((err) => {
+          expect(err.message).toEqual('Reservation not available through dates!');
+        });
+    });
+  });
+});
