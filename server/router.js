@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  res.send('thanks for posting');
+  res.send('thanks for putting');
 });
 
 module.exports = router;
