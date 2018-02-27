@@ -18,7 +18,13 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  res.send('thanks for putting');
+  reservations.makeReservation(req.params.id, req.body.checkInDate, req.body.checkOutDate)
+    .then((price) => {
+      res.send({ price });
+    })
+    .catch((err) => {
+      res.send(500, err);
+    });
 });
 
 module.exports = router;

@@ -28,5 +28,11 @@ describe('Test API routes', () => {
             expect(reservationsArr[i].year).toBe(2018);
           }
         }));
+    it('successful PUT request should return the total price for the month', () =>
+      request(app).put('/1').send({ checkInDate: '01-01-2018', checkOutDate: '01-03-2018' })
+        .then((response) => {
+          expect(response.status).toBe(200);
+          expect(JSON.parse(response.text).price).toEqual(600);
+        }));
   });
 });
