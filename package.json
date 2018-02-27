@@ -11,7 +11,7 @@
     "start": "node ./server/server.js",
     "seed": "knex seed:run --env development",
     "dev-server": "nodemon ./server/server.js",
-    "test": "jest",
+    "test": "jest --forceExit",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "seed-test": "knex seed:run --env test"
@@ -20,7 +20,11 @@
     "babel-loader": "^7.1.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+<<<<<<< HEAD
     "css-loader": "^0.28.10",
+=======
+    "body-parser": "^1.18.2",
+>>>>>>> Add --forceExit to npm test
     "express": "^4.16.2",
     "file-loader": "^1.1.10",
     "knex": "^0.14.4",
