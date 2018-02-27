@@ -1,7 +1,8 @@
 import React from 'react';
+import css from '../styles/styles.css';
 
 const App = () => (
-  <p>test</p>
+  <div className="reservations-footer"><p>test</p></div>
 );
 
 export default App;
