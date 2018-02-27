@@ -1,6 +1,6 @@
-DROP DATABASE reservations;
-CREATE DATABASE reservations;
-\connect reservations;
+DROP DATABASE reservations_test;
+CREATE DATABASE reservations_test;
+\connect reservations_test;
 
 CREATE TABLE listings (
   id SERIAL UNIQUE PRIMARY KEY,
@@ -22,4 +22,3 @@ CREATE TABLE reservations (
   price NUMERIC(10, 2) NOT NULL,
   available BOOLEAN NOT NULL
 );
-

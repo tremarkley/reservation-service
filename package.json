@@ -9,11 +9,12 @@
   },
   "scripts": {
     "start": "node ./server/server.js",
-    "seed": "knex seed:run",
+    "seed": "knex seed:run --env dev",
     "dev-server": "nodemon ./server/server.js",
     "test": "jest",
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "seed-test": "knex seed:run --env test"
   },
   "dependencies": {
     "babel-loader": "^7.1.3",
