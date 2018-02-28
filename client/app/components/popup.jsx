@@ -23,6 +23,7 @@ const Popup = () => (
                     placeholder="Check In"
                     autoComplete="off"
                   />
+                  <div className="check-in-text">Check In</div>
                 </div>
                 <div className="hyphen">-</div>
                 <div className="checkout-container">
@@ -34,11 +35,12 @@ const Popup = () => (
                     placeholder="Check Out"
                     autoComplete="off"
                   />
+                  <div className="check-out-text">Check Out</div>
                 </div>
               </div>
             </div>
             <div className="guests">
-              <label htmlFor="guests-button" className="reservation-button">
+              <label htmlFor="guests-button" className="guest-label">
                 <span>Guests</span>
               </label>
               <button id="guests-button" className="guests-button">
