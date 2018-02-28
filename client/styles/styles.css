@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
@@ -27,7 +31,7 @@ button:focus {
 .content {
   margin: 0 20%;
   padding: 11px 0;
-  height: 72%;
+  height: 100%;
 }
 
 .bookButton {
@@ -267,4 +271,69 @@ input {
   padding-bottom: 0px;
   font-weight: 350;
   color: #ffffff;
+}
+
+.outer-calendar-pop-up {
+  z-index: 1;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+.inner-calendar-pop-up {
+  width: 319px;
+  position: relative;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+}
+
+.calendar-holder {
+  width: 318px;
+}
+
+.calendar-footer-content {
+  bottom: 0px;
+  padding: 24px;
+  padding-top: 0px;
+}
+
+.fine-print {
+  font-weight: normal;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+}
+
+.clear-dates-div {
+  text-align: right;
+  margin-top: 4px;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+}
+
+.clear-dates-btn {
+  color: #008489;
+  font: inherit;
+  text-decoration: none;
+  background: transparent;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  text-align: left;
 }
