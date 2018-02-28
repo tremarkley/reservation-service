@@ -11,6 +11,7 @@ for (let i = 0; i < 365; i += 1) {
   dateObj.month = newDate.getMonth() + 1;
   dateObj.day = newDate.getDate();
   dateObj.year = newDate.getFullYear();
+  dateObj.date = `${dateObj.month}-${dateObj.day}-${dateObj.year}`;
   dates.push(dateObj);
   incrementDate(newDate);
 }
