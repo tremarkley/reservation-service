@@ -1,0 +1,270 @@
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.reservations-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  border-top: 1px solid #DBDBDB ;
+  height: 10%;
+  background-color: #ffffff;
+}
+
+.content {
+  margin: 0 20%;
+  padding: 11px 0;
+  height: 72%;
+}
+
+.bookButton {
+  float: right;
+  height: 100%;
+  width: 180px;
+  background: #FF5A5F;
+  border: none;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  border-radius: 4px;
+  font-weight: 350;
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: white;
+  letter-spacing: 0.7px;
+}
+
+.pop-up {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: table;
+  overflow-y: auto;
+}
+
+.pop-up-content {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 64px;
+}
+
+.inner-content {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
+  max-width: 376px;
+  margin: auto !important;
+}
+
+.inner-inner-content {
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+.close-button {
+  background-image: url('../images/x-icon.png');
+  background-size: 15px 15px;
+  height: 15px;
+  width: 15px;
+  border: none;
+}
+
+input {
+  cursor: text;
+}
+
+.reservations-dialog-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.dates {
+  display: inline-block;
+  width: calc(58.33333333% - 4px);
+  vertical-align: top;
+}
+
+.guests {
+  display: inline-block;
+  margin-left: 8px;
+  width: -webkit-calc(41.66666667% - 4px);
+  width: -moz-calc(41.66666667% - 4px);
+  width: calc(41.66666667% - 4px);
+  vertical-align: top;
+}
+
+.reservation-label, .guest-label {
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 4px;
+  word-wrap: break-word;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.2px !important;
+  color: #484848 !important;
+}
+
+#checkin, #checkout, .hyphen {
+  border: none;
+  display: inline;
+  color: #484848;
+}
+
+#checkin, #checkout, .hyphen {
+  display: inline;
+}
+
+.hyphen {
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#checkin, #checkout {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.check-in-text, .check-out-text {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  display: inline !important;
+  padding: 4px 6px !important;
+}
+
+.dates-container {
+  background-color: #fff;
+  display: block;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.checkin-container, .checkout-container {
+  line-height: 24px;
+  color: #757575;
+  margin: 0px;
+  background: #fff;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+  padding: 9px 0;
+  width: auto;
+}
+
+.guests-button {
+  background: #ffffff;
+  text-align: left;
+  border-radius: 2px;
+  line-height: normal;
+  display: block;
+  width: 100%;
+  border: 1px solid #DBDBDB;
+  padding: 6px;
+}
+
+.guests-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: -0.3px;
+  color: #484848;
+  font-weight: normal;
+}
+
+.guest-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #484848;
+  font-weight: normal;
+  border-radius: 4px;
+  display: inline;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.booking-button-container {
+  margin-top: 24px;
+}
+
+.book-now-button {
+  -webkit-transition: background 0.3s, border-color 0.3s;
+  -moz-transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #484848;
+  font-weight: 700;
+  border: 2px solid transparent;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-width: 77.66563145999496px;
+  background: #FF5A5F;
+}
+
+.book-now-span {
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  transition: color 0.3s;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #ffffff;
+}
+
+.book-now-div {
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 19px;
+  line-height: 24px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-weight: 350;
+  color: #ffffff;
+}
