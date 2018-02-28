@@ -1,5 +1,8 @@
 body {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
 }
 
 button {
@@ -85,4 +88,111 @@ button:focus {
   height: 15px;
   width: 15px;
   border: none;
+}
+
+input {
+  cursor: text;
+}
+
+.reservations-dialog-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.dates {
+  display: inline-block;
+  width: calc(58.33333333% - 4px);
+  vertical-align: top;
+}
+
+.guests {
+  display: inline-block;
+  margin-left: 8px;
+  width: -webkit-calc(41.66666667% - 4px);
+  width: -moz-calc(41.66666667% - 4px);
+  width: calc(41.66666667% - 4px);
+  vertical-align: top;
+}
+
+.reservation-label {
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 4px;
+  word-wrap: break-word;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.2px !important;
+  color: #484848 !important;
+}
+
+#checkin, #checkout, .hyphen {
+  border: none;
+  display: inline;
+  color: #484848;
+}
+
+#checkin, #checkout, .hyphen {
+  display: inline;
+}
+
+.dates-container {
+  background-color: #fff;
+  display: block;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.checkin-container, .checkout-container {
+  line-height: 24px;
+  color: #757575;
+  margin: 0px;
+  background: #fff;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+  padding: 9px 0;
+  width: auto;
+}
+
+.guests-button {
+  background: #ffffff;
+  text-align: left;
+  border-radius: 2px;
+  line-height: normal;
+  display: block;
+  width: 100%;
+  border: 1px solid #DBDBDB;
+  padding: 6px;
+}
+
+.guests-container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: -0.3px;
+  color: #484848;
+  font-weight: normal;
+}
+
+.guest-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #484848;
+  font-weight: normal;
+  border-radius: 4px;
+  display: inline;
+  padding-left: 6px;
+  padding-right: 6px;
 }
