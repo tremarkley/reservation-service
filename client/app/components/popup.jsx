@@ -50,6 +50,15 @@ const Popup = () => (
               </button>
             </div>
           </div>
+          <div className="booking-button-container">
+            <button className="book-now-button">
+              <span className="book-now-span">
+                <div className="book-now-div">
+                  <span>Book</span>
+                </div>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
