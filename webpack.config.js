@@ -21,6 +21,11 @@ const config = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.png$/,
+        exclude: /node_modules/,
+        loader: 'file-loader?name=images/[name].[ext]',
+      },
     ],
   },
   resolve: {

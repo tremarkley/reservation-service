@@ -21,6 +21,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
     "express": "^4.16.2",
+    "file-loader": "^1.1.10",
     "knex": "^0.14.4",
     "pg": "^7.4.1",
     "react": "^16.2.0",
