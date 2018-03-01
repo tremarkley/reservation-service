@@ -12,6 +12,14 @@ class App extends React.Component {
     };
     this.togglePopup = this.togglePopup.bind(this);
   }
+
+  // componentDidMount() {
+  //   axios.get('/1', { params: { month: 2, year: 2018 } })
+  //     .then((data) => {
+  //       console.log(JSON.stringify(data));
+  //     });
+  // }
+
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup,
