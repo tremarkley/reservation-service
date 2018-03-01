@@ -1,19 +1,11 @@
 import React from 'react';
 import sampleData from '../../data/sampleData';
+/*  eslint-disable no-unused-vars  */
+import css from '../../styles/styles.css';
+/*  eslint-enable no-unused-vars  */
 
 const CalendarGrid = () => (
   // <table>
-  //   <thead>
-  //     <tr>
-  //       <th>Su</th>
-  //       <th>Mo</th>
-  //       <th>Tu</th>
-  //       <th>We</th>
-  //       <th>Th</th>
-  //       <th>Fr</th>
-  //       <th>Sa</th>
-  //     </tr>
-  //   </thead>
   // </table>
   null
 );

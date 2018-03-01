@@ -9,9 +9,9 @@ const Calendar = () => (
     <div className="inner-calendar-pop-up">
       <div className="calendar-holder">
         {/* <div className="calendarHeader"> */}
-          <button className="left-arrow" />
-          <h4 className="calendar-header">January 2018</h4>
-          <button className="right-arrow" />
+        <button className="left-arrow" />
+        <h4 className="calendar-header">January 2018</h4>
+        <button className="right-arrow" />
         {/* </div> */}
         <div className="days-of-week-div">
           <ul className="days">
