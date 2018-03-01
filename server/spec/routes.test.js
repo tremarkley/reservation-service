@@ -18,7 +18,7 @@ describe('Test API routes', () => {
 
   describe('Test the router', () => {
     it('GET request should return reservation data for the month', () =>
-      request(app).get('/2').send({ month: 1, year: 2018 })
+      request(app).get('/2?month=1&year=2018')
         .then((response) => {
           expect(response.status).toBe(200);
           const reservationsArr = JSON.parse(response.text);
