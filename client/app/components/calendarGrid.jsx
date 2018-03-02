@@ -1,5 +1,6 @@
 import React from 'react';
-import sampleData from '../../data/sampleData';
+import PropTypes from 'prop-types';
+// import sampleData from '../../data/sampleData';
 /*  eslint-disable no-unused-vars  */
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
@@ -38,12 +39,25 @@ const addRows = function addRows(days) {
   return results;
 };
 
-const CalendarGrid = () => (
+const CalendarGrid = props => (
   <table className="calendar-grid">
     <tbody>
-      {addRows(sampleData)}
+      {addRows(props.reservationData)}
     </tbody>
   </table>
 );
+
+CalendarGrid.propTypes = {
+  reservationData: PropTypes.arrayOf(PropTypes.shape({
+    listing_id: PropTypes.number.isRequired,
+    minimum_stay: PropTypes.number.isRequired,
+    maximum_guests: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+    day: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
+    available: PropTypes.bool.isRequired,
+  })).isRequired,
+};
 
 export default CalendarGrid;
