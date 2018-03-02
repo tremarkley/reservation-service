@@ -188,7 +188,7 @@ input {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.3px;
   padding: 9px 0;
@@ -455,4 +455,19 @@ input {
   cursor: pointer !important;
   font-size: 14px !important;
   text-align: center !important;
+}
+
+.date:hover {
+  background: rgb(228, 231, 231);
+}
+
+.check-in-text.active, .check-out-text.active {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  display: inline !important;
+  padding: 4px 6px !important;
+  background: #008489 !important;
+  border-color: #008489 !important;
+  border-radius: 4px !important;
+  color: #fff !important;
 }

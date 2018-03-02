@@ -1,14 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Calendar from './calendar';
 
 class Popup extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showCalendar: false,
+      checkInActive: false,
+      checkOutActive: false,
     };
     this.openCalendar = this.openCalendar.bind(this);
     this.closeCalendar = this.closeCalendar.bind(this);
+    this.handleCheckInClick = this.handleCheckInClick.bind(this);
+    this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
+  }
+
+  handleCheckInClick() {
+    this.openCalendar();
+    this.setState({ checkInActive: true, checkOutActive: false });
+  }
+
+  handleCheckOutClick() {
+    this.openCalendar();
+    this.setState({ checkOutActive: true, checkInActive: false });
   }
 
   openCalendar() {
@@ -33,7 +48,7 @@ class Popup extends React.Component {
           <div className="inner-content">
             <div className="inner-inner-content">
               <div className="close-dialog-container">
-                <button className="close-button" />
+                <button className="close-button" onClick={this.props.onClose} />
               </div>
               <div className="reservations-dialog-container">
                 <div className="dates">
@@ -49,11 +64,13 @@ class Popup extends React.Component {
                         value=""
                         placeholder="Check In"
                         autoComplete="off"
-                        onClick={this.openCalendar}
+                        onClick={this.handleCheckInClick}
                       />
-                      <div className="check-in-text">Check In</div>
-                    </div>
-                    <div className="hyphen">-</div>
+                      <div className={`check-in-text ${this.state.checkInActive ? 'active' : ''}`}>Check In</div>
+                    </div> {
+                      !this.state.checkInActive && !this.state.checkOutActive ?
+                        <div className="hyphen">-</div> : null
+                    }
                     <div className="checkout-container">
                       <input
                         type="text"
@@ -62,9 +79,9 @@ class Popup extends React.Component {
                         value=""
                         placeholder="Check Out"
                         autoComplete="off"
-                        onClick={this.openCalendar}
+                        onClick={this.handleCheckOutClick}
                       />
-                      <div className="check-out-text">Check Out</div>
+                      <div className={`check-out-text ${this.state.checkOutActive ? 'active' : ''}`}>Check Out</div>
                     </div>
                     {
                       this.state.showCalendar ?
@@ -101,5 +118,9 @@ class Popup extends React.Component {
     );
   }
 }
+
+Popup.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default Popup;
