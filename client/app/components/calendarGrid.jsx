@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
 
-const addRows = function addRows(days) {
+const addRows = function addRows(days, clickHandler, dates) {
   let cells = [];
   const results = [];
   for (let i = 0; i < days.length; i += 1) {
@@ -23,7 +23,7 @@ const addRows = function addRows(days) {
       }
     }
 
-    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className="date">{days[i].day}</td>);
+    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className={`date ${dates.checkInDate === days[i] || dates.checkOutDate === days[i] ? 'date-selected' : null}`} onClick={() => clickHandler(days[i])}>{days[i].day}</td>);
 
     //  last day of the month
     if (i === days.length - 1) {
@@ -42,7 +42,7 @@ const addRows = function addRows(days) {
 const CalendarGrid = props => (
   <table className="calendar-grid">
     <tbody>
-      {addRows(props.reservationData)}
+      {addRows(props.reservationData, props.onDateClick, props.dates)}
     </tbody>
   </table>
 );
@@ -58,6 +58,29 @@ CalendarGrid.propTypes = {
     price: PropTypes.string.isRequired,
     available: PropTypes.bool.isRequired,
   })).isRequired,
+  onDateClick: PropTypes.func.isRequired,
+  dates: PropTypes.shape({
+    checkInDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+    checkOutDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+  }).isRequired,
 };
 
 export default CalendarGrid;

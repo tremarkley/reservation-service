@@ -471,3 +471,9 @@ input {
   border-radius: 4px !important;
   color: #fff !important;
 }
+
+.date.date-selected {
+  border: rgb(0, 132, 137);
+  color: rgb(255, 255, 255);
+  background: rgb(0, 132, 137);
+}

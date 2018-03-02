@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Calendar from './calendar';
+import monthName from '../../data/reservationDataObj';
 
 class Popup extends React.Component {
   constructor(props) {
@@ -9,11 +10,14 @@ class Popup extends React.Component {
       showCalendar: false,
       checkInActive: false,
       checkOutActive: false,
+      checkInDate: undefined,
+      checkOutDate: undefined,
     };
     this.openCalendar = this.openCalendar.bind(this);
     this.closeCalendar = this.closeCalendar.bind(this);
     this.handleCheckInClick = this.handleCheckInClick.bind(this);
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
+    this.handleDateClick = this.handleDateClick.bind(this);
   }
 
   handleCheckInClick() {
@@ -26,6 +30,32 @@ class Popup extends React.Component {
     this.setState({ checkOutActive: true, checkInActive: false });
   }
 
+  handleDateClick(day) {
+    if (this.state.checkInActive) {
+      console.log(`check in: ${JSON.stringify(day)}`);
+      const dayDate = new Date(`${day.month}-${day.day}-${day.year}`);
+      // if check in date is later than current check out date then we need to set checkout date to undefined
+      this.setState(() => {
+        if (this.state.checkOutDate !== undefined) {
+          const checkOutDateObj = new Date(`${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`);
+          if (checkOutDateObj <= dayDate) {
+            return {
+              checkInDate: day, checkOutDate: undefined, checkInActive: false, checkOutActive: true,
+            };
+          }
+        }
+        return {
+          checkInDate: day, checkInActive: false, checkOutActive: true,
+        };
+      });
+    } else if (this.state.checkOutActive) {
+      //  Airbnb is setup in such a way that once a certain check in date is selected it doesnt allow you to
+      //  select a check out date before oron that check in date
+      console.log(`check out: ${JSON.stringify(day)}`);
+      this.setState({ checkOutDate: day });
+    }
+  }
+
   openCalendar() {
     this.setState({
       showCalendar: true,
@@ -36,7 +66,7 @@ class Popup extends React.Component {
     const datesDiv = document.getElementById('dates-container');
     if (!datesDiv.contains(event.target) && this.state.showCalendar) {
       this.setState({
-        showCalendar: false,
+        showCalendar: false, checkOutActive: false, checkInActive: false,
       });
     }
   }
@@ -66,7 +96,7 @@ class Popup extends React.Component {
                         autoComplete="off"
                         onClick={this.handleCheckInClick}
                       />
-                      <div className={`check-in-text ${this.state.checkInActive ? 'active' : ''}`}>Check In</div>
+                      <div className={`check-in-text ${this.state.checkInActive ? 'active' : ''}`}>{this.state.checkInDate ? `${monthName.short[this.state.checkInDate.month - 1]} ${this.state.checkInDate.day}` : 'Check In'}</div>
                     </div> {
                       !this.state.checkInActive && !this.state.checkOutActive ?
                         <div className="hyphen">-</div> : null
@@ -81,11 +111,11 @@ class Popup extends React.Component {
                         autoComplete="off"
                         onClick={this.handleCheckOutClick}
                       />
-                      <div className={`check-out-text ${this.state.checkOutActive ? 'active' : ''}`}>Check Out</div>
+                      <div className={`check-out-text ${this.state.checkOutActive ? 'active' : ''}`}>{this.state.checkOutDate ? `${monthName.short[this.state.checkOutDate.month - 1]} ${this.state.checkOutDate.day}` : 'Check Out'}</div>
                     </div>
                     {
                       this.state.showCalendar ?
-                        <Calendar /> : null
+                        <Calendar dates={{ checkInDate: this.state.checkInDate, checkOutDate: this.state.checkOutDate }} onClick={this.handleDateClick} /> : null
                     }
                   </div>
                 </div>

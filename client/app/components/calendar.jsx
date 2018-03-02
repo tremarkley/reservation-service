@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import CalendarGrid from './calendarGrid';
 import monthName from '../../data/reservationDataObj';
 /*  eslint-disable no-unused-vars  */
@@ -7,8 +8,8 @@ import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
 
 class Calendar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const now = new Date();
     const month = now.getMonth();
     const year = now.getFullYear();
@@ -64,7 +65,7 @@ class Calendar extends React.Component {
           <div className="calendar-holder">
             {/* <div className="calendarHeader"> */}
             <button className="left-arrow" onClick={this.leftArrowClick} />
-            <h4 className="calendar-header">{`${monthName[this.state.month]} ${this.state.year}`}</h4>
+            <h4 className="calendar-header">{`${monthName.long[this.state.month]} ${this.state.year}`}</h4>
             <button className="right-arrow" onClick={this.rightArrowClick} />
             {/* </div> */}
             <div className="days-of-week-div">
@@ -80,7 +81,7 @@ class Calendar extends React.Component {
             </div>
             {
               this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? null
-              : <CalendarGrid reservationData={this.state.reservationData[`${this.state.month}-${this.state.year}`]} />
+              : <CalendarGrid reservationData={this.state.reservationData[`${this.state.month}-${this.state.year}`]} onDateClick={this.props.onClick} dates={this.props.dates} />
             }
           </div>
           <div className="calendar-footer">
@@ -99,5 +100,31 @@ class Calendar extends React.Component {
     );
   }
 }
+
+Calendar.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  dates: PropTypes.shape({
+    checkInDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+    checkOutDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+  }).isRequired,
+};
 
 export default Calendar;
