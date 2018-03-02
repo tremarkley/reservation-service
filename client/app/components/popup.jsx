@@ -115,7 +115,7 @@ class Popup extends React.Component {
                     </div>
                     {
                       this.state.showCalendar ?
-                        <Calendar dates={{ checkInDate: this.state.checkInDate, checkOutDate: this.state.checkOutDate }} onClick={this.handleDateClick} /> : null
+                        <Calendar dates={{ checkInDate: this.state.checkInDate, checkOutDate: this.state.checkOutDate }} onClick={this.handleDateClick} reservationData={this.props.reservationData} updateReservationData={this.props.updateReservationData} /> : null
                     }
                   </div>
                 </div>
@@ -151,6 +151,8 @@ class Popup extends React.Component {
 
 Popup.propTypes = {
   onClose: PropTypes.func.isRequired,
+  reservationData: PropTypes.object.isRequired,
+  updateReservationData: PropTypes.func.isRequired,
 };
 
 export default Popup;

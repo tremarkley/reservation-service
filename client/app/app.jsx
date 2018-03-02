@@ -9,13 +9,23 @@ class App extends React.Component {
     super();
     this.state = {
       showPopup: false,
+      reservationData: {},
     };
     this.togglePopup = this.togglePopup.bind(this);
+    this.updateReservationData = this.updateReservationData.bind(this);
   }
 
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup,
+    });
+  }
+
+  updateReservationData(data, month, year) {
+    this.setState((prevState) => {
+      const nextReservationData = prevState.reservationData;
+      nextReservationData[`${month}-${year}`] = data;
+      return { reservationData: nextReservationData };
     });
   }
 
@@ -27,7 +37,7 @@ class App extends React.Component {
         </div>
         {
           this.state.showPopup ?
-            <Popup onClose={this.togglePopup} /> : null
+            <Popup onClose={this.togglePopup} reservationData={this.state.reservationData} updateReservationData={this.updateReservationData} /> : null
         }
       </div>
     );

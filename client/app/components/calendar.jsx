@@ -11,12 +11,12 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
     const now = new Date();
-    const month = now.getMonth();
+    const month = now.getMonth(); // consider passing in check in and check out date and setting month
     const year = now.getFullYear();
     this.state = {
       month,
       year,
-      reservationData: {},
+      // reservationData: {},
       // currentMonthData: null,
     };
     this.leftArrowClick = this.leftArrowClick.bind(this);
@@ -33,14 +33,15 @@ class Calendar extends React.Component {
   }
 
   getReservationData() {
-    if (this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined) {
+    if (this.props.reservationData[`${this.state.month}-${this.state.year}`] === undefined) {
       axios.get('/1', { params: { month: this.state.month + 1, year: this.state.year } })
         .then((response) => {
-          this.setState((prevState) => {
-            const nextReservationData = prevState.reservationData;
-            nextReservationData[`${this.state.month}-${this.state.year}`] = response.data;
-            return { reservationData: nextReservationData };
-          });
+          this.props.updateReservationData(response.data, this.state.month, this.state.year);
+          // this.setState((prevState) => {
+          //   const nextReservationData = prevState.reservationData;
+          //   nextReservationData[`${this.state.month}-${this.state.year}`] = response.data;
+          //   return { reservationData: nextReservationData };
+          // });
         });
     }
   }
@@ -80,8 +81,8 @@ class Calendar extends React.Component {
               </ul>
             </div>
             {
-              this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? null
-              : <CalendarGrid reservationData={this.state.reservationData[`${this.state.month}-${this.state.year}`]} onDateClick={this.props.onClick} dates={this.props.dates} />
+              this.props.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? null
+              : <CalendarGrid reservationData={this.props.reservationData[`${this.state.month}-${this.state.year}`]} onDateClick={this.props.onClick} dates={this.props.dates} />
             }
           </div>
           <div className="calendar-footer">
@@ -125,6 +126,8 @@ Calendar.propTypes = {
       available: PropTypes.bool.isRequired,
     }),
   }).isRequired,
+  reservationData: PropTypes.object.isRequired,
+  updateReservationData: PropTypes.func.isRequired,
 };
 
 export default Calendar;

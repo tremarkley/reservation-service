@@ -22,8 +22,7 @@ const checkDatesEquality = function checkDatesEquality(day1, day2) {
 const getDateClass = function getDateClass(day, dates) {
   if (dates.checkInDate === undefined && dates.checkOutDate === undefined) {
     return '';
-  } else if (checkDatesEquality(dates.checkInDate, day)
-      || checkDatesEquality(dates.checkOutDate, day)) {
+  } else if (dates.checkInDate === day || dates.checkOutDate === day) {
     return 'date-selected';
   } else if (dates.checkInDate !== undefined && dates.checkOutDate !== undefined) {
     if (getActualDate(day) > getActualDate(dates.checkInDate)
