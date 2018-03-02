@@ -18,14 +18,20 @@ class Calendar extends React.Component {
       reservationData: {},
       // currentMonthData: null,
     };
+    this.leftArrowClick = this.leftArrowClick.bind(this);
+    this.rightArrowClick = this.rightArrowClick.bind(this);
+    this.getReservationData = this.getReservationData.bind(this);
   }
 
   componentDidMount() {
-    //  look at current month and year
-    //  check to see if data is in reservation data already
-    //  if not make a call to server for it
-    //  Set state in the then of the server call
-    //  if the data is already there then just set state of current month to that month
+    this.getReservationData();
+  }
+
+  componentDidUpdate() {
+    this.getReservationData();
+  }
+
+  getReservationData() {
     if (this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined) {
       axios.get('/1', { params: { month: this.state.month + 1, year: this.state.year } })
         .then((response) => {
@@ -38,15 +44,28 @@ class Calendar extends React.Component {
     }
   }
 
+  leftArrowClick() {
+    const now = new Date();
+    if (this.state.month > now.getMonth()) {
+      this.setState(prevState => ({ month: prevState.month - 1 }));
+    }
+  }
+
+  rightArrowClick() {
+    if (this.state.month < 11) {
+      this.setState(prevState => ({ month: prevState.month + 1 }));
+    }
+  }
+
   render() {
     return (
       <div className="outer-calendar-pop-up">
         <div className="inner-calendar-pop-up">
           <div className="calendar-holder">
             {/* <div className="calendarHeader"> */}
-            <button className="left-arrow" />
+            <button className="left-arrow" onClick={this.leftArrowClick} />
             <h4 className="calendar-header">{`${monthName[this.state.month]} ${this.state.year}`}</h4>
-            <button className="right-arrow" />
+            <button className="right-arrow" onClick={this.rightArrowClick} />
             {/* </div> */}
             <div className="days-of-week-div">
               <ul className="days">
@@ -60,7 +79,7 @@ class Calendar extends React.Component {
               </ul>
             </div>
             {
-              this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? <p>Loading Reservation Data</p>
+              this.state.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? null
               : <CalendarGrid reservationData={this.state.reservationData[`${this.state.month}-${this.state.year}`]} />
             }
           </div>
