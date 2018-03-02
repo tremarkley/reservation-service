@@ -477,3 +477,13 @@ input {
   color: rgb(255, 255, 255);
   background: rgb(0, 132, 137);
 }
+
+.date.between-selected {
+  border: 1px solid rgb(51, 218, 205);
+  color: rgb(255, 255, 255);
+  background: rgb(102, 226, 218);
+}
+
+.date.between-selected:hover {
+  background: rgb(51, 226, 218);
+}
