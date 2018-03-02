@@ -9,15 +9,15 @@ const getActualDate = function getActualDate(day) {
   return new Date(`${day.month}-${day.day}-${day.year}`);
 };
 
-const checkDatesEquality = function checkDatesEquality(day1, day2) {
-  if (day1 === undefined || day2 === undefined) {
-    return false;
-  }
-  if (day1.day === day2.day && day1.month === day2.month && day1.year === day2.year) {
-    return true;
-  }
-  return false;
-};
+// const checkDatesEquality = function checkDatesEquality(day1, day2) {
+//   if (day1 === undefined || day2 === undefined) {
+//     return false;
+//   }
+//   if (day1.day === day2.day && day1.month === day2.month && day1.year === day2.year) {
+//     return true;
+//   }
+//   return false;
+// };
 
 const getDateClass = function getDateClass(day, dates) {
   if (dates.checkInDate === undefined && dates.checkOutDate === undefined) {
