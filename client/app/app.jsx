@@ -86,8 +86,19 @@ class App extends React.Component {
     } else if (this.state.checkOutActive) {
       //  Airbnb is setup in such a way that once a certain check in date
       //  is selected it doesnt allow you to
-      //  select a check out date before oron that check in date
-      this.setState({ checkOutDate: day });
+      //  select a check out date before or on that check in date
+      if (day !== this.state.checkInDate) {
+        //  if we have a check in and check out date then close calendar
+        if (this.state.checkInDate) {
+          this.setState({
+            checkOutDate: day, showCalendar: false, checkOutActive: false, checkInActive: false,
+          });
+        } else {
+          this.setState({
+            checkOutDate: day, checkOutActive: false, checkInActive: true,
+          });
+        }
+      }
     }
   }
 

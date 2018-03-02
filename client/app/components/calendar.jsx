@@ -10,14 +10,22 @@ import css from '../../styles/styles.css';
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    const now = new Date();
-    const month = now.getMonth(); // consider passing in check in and check out date and setting month
-    const year = now.getFullYear();
+    let month;
+    let year;
+    if (props.dates.checkInDate !== undefined) {
+      month = props.dates.checkInDate.month - 1;
+      ({ year } = props.dates.checkInDate);
+    } else if (props.dates.checkOutDate !== undefined) {
+      month = props.dates.checkOutDate.month - 1;
+      ({ year } = props.dates.checkOutDate);
+    } else {
+      const now = new Date();
+      month = now.getMonth();
+      year = now.getFullYear();
+    }
     this.state = {
       month,
       year,
-      // reservationData: {},
-      // currentMonthData: null,
     };
     this.leftArrowClick = this.leftArrowClick.bind(this);
     this.rightArrowClick = this.rightArrowClick.bind(this);
@@ -37,11 +45,6 @@ class Calendar extends React.Component {
       axios.get('/1', { params: { month: this.state.month + 1, year: this.state.year } })
         .then((response) => {
           this.props.updateReservationData(response.data, this.state.month, this.state.year);
-          // this.setState((prevState) => {
-          //   const nextReservationData = prevState.reservationData;
-          //   nextReservationData[`${this.state.month}-${this.state.year}`] = response.data;
-          //   return { reservationData: nextReservationData };
-          // });
         });
     }
   }
@@ -64,11 +67,9 @@ class Calendar extends React.Component {
       <div className="outer-calendar-pop-up">
         <div className="inner-calendar-pop-up">
           <div className="calendar-holder">
-            {/* <div className="calendarHeader"> */}
             <button className="left-arrow" onClick={this.leftArrowClick} />
             <h4 className="calendar-header">{`${monthName.long[this.state.month]} ${this.state.year}`}</h4>
             <button className="right-arrow" onClick={this.rightArrowClick} />
-            {/* </div> */}
             <div className="days-of-week-div">
               <ul className="days">
                 <li className="day"><small>Su</small></li>
