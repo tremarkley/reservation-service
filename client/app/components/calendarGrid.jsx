@@ -20,6 +20,9 @@ const getActualDate = function getActualDate(day) {
 // };
 
 const getDateClass = function getDateClass(day, dates) {
+  if (!day.available) {
+    return 'not-available';
+  }
   if (dates.checkInDate === undefined && dates.checkOutDate === undefined) {
     return '';
   } else if (dates.checkInDate === day || dates.checkOutDate === day) {
@@ -53,7 +56,7 @@ const addRows = function addRows(days, clickHandler, dates) {
 
     // if date is between check in and check out then give it class between
 
-    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className={`date ${getDateClass(days[i], dates)}`} onClick={() => clickHandler(days[i])}>{days[i].day}</td>);
+    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className={`date ${getDateClass(days[i], dates)}`} onClick={days[i].available ? () => clickHandler(days[i]) : null}>{days[i].day}</td>);
 
     //  last day of the month
     if (i === days.length - 1) {

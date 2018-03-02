@@ -487,3 +487,14 @@ input {
 .date.between-selected:hover {
   background: rgb(51, 226, 218);
 }
+
+.date.not-available {
+  border: 1px double rgb(228, 231, 231);
+  color: rgb(220, 224, 224);
+  cursor: default !important;
+  text-decoration: line-through;
+}
+
+.date.not-available:hover {
+  background: #fff;
+}

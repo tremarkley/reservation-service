@@ -68,7 +68,8 @@ class App extends React.Component {
     if (this.state.checkInActive) {
       console.log(`check in: ${JSON.stringify(day)}`);
       const dayDate = new Date(`${day.month}-${day.day}-${day.year}`);
-      // if check in date is later than current check out date then we need to set checkout date to undefined
+      // if check in date is later than current check out date then we need
+      // to set checkout date to undefined
       this.setState(() => {
         if (this.state.checkOutDate !== undefined) {
           const checkOutDateObj = new Date(`${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`);
@@ -83,9 +84,9 @@ class App extends React.Component {
         };
       });
     } else if (this.state.checkOutActive) {
-      //  Airbnb is setup in such a way that once a certain check in date is selected it doesnt allow you to
+      //  Airbnb is setup in such a way that once a certain check in date
+      //  is selected it doesnt allow you to
       //  select a check out date before oron that check in date
-      console.log(`check out: ${JSON.stringify(day)}`);
       this.setState({ checkOutDate: day });
     }
   }
