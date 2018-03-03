@@ -59,7 +59,9 @@ class App extends React.Component {
   }
 
   handleClearDates() {
-    this.setState({ checkInDate: undefined, checkOutDate: undefined });
+    this.setState({
+      checkInDate: undefined, checkOutDate: undefined, lastPossibleCheckOutDate: undefined, lastPossibleCheckInDate: undefined 
+    });
   }
 
   openCalendar() {
@@ -81,7 +83,7 @@ class App extends React.Component {
   findLastPossibleCheckOutDate(date) {
     const index = date.day - 1;
     let lastDate = date;
-    for (let j = date.month - 1; j <= 12; j += 1) {
+    for (let j = date.month - 1; j < 12; j += 1) {
       if (this.state.reservationData[`${j}-${date.year}`] !== undefined) {
         let loopStart = 0;
         if (j === date.month - 1) {
@@ -92,6 +94,33 @@ class App extends React.Component {
           if (!this.state.reservationData[`${j}-${date.year}`][i].available) {
             return lastDate;
           }
+        }
+      }
+    }
+    return lastDate;
+  }
+
+  //  this should only be displayed when a check in date has not
+  //  been selected yet and check out date has
+  findLastPossibleCheckInDate(date) {
+    if (this.state.checkInDate) {
+      return this.state.checkInDate;
+    }
+    const index = date.day - 1;
+    let lastDate = date;
+    const now = new Date();
+    const earliestMonth = now.getMonth();
+    for (let j = date.month - 1; j >= earliestMonth; j -= 1) {
+      if (this.state.reservationData[`${j}-${date.year}`] !== undefined) {
+        let loopStart = this.state.reservationData[`${j}-${date.year}`].length - 1;
+        if (j === date.month - 1) {
+          loopStart = index;
+        }
+        for (let i = loopStart; i >= 0; i -= 1) {
+          if (!this.state.reservationData[`${j}-${date.year}`][i].available) {
+            return lastDate;
+          }
+          lastDate = this.state.reservationData[`${j}-${date.year}`][i];
         }
       }
     }
@@ -124,14 +153,15 @@ class App extends React.Component {
       //  is selected it doesnt allow you to
       //  select a check out date before or on that check in date
       if (day !== this.state.checkInDate) {
+        const lastPossibleCheckInDate = this.findLastPossibleCheckInDate(day);
         //  if we have a check in and check out date then close calendar
         if (this.state.checkInDate) {
           this.setState({
-            checkOutDate: day, showCalendar: false, checkOutActive: false, checkInActive: false,
+            checkOutDate: day, showCalendar: false, checkOutActive: false, checkInActive: false, lastPossibleCheckInDate,
           });
         } else {
           this.setState({
-            checkOutDate: day, checkOutActive: false, checkInActive: true,
+            checkOutDate: day, checkOutActive: false, checkInActive: true, lastPossibleCheckInDate,
           });
         }
       }
