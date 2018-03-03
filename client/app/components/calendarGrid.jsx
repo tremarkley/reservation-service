@@ -37,7 +37,9 @@ const getDateClass = function getDateClass(
   const day = days[index];
   if (dates.checkInDate === day || dates.checkOutDate === day) {
     return 'date-selected';
-  } else if (dates.checkInDate !== undefined && dates.checkOutDate !== undefined) {
+  }
+
+  if (dates.checkInDate !== undefined && dates.checkOutDate !== undefined) {
     if (getActualDate(day) > getActualDate(dates.checkInDate)
       && getActualDate(day) < getActualDate(dates.checkOutDate)) {
       return 'between-selected';
@@ -127,7 +129,13 @@ const addRows = function addRows(days, clickHandler, dates, checkInActive, lastD
 const CalendarGrid = props => (
   <table className="calendar-grid">
     <tbody>
-      {addRows(props.reservationData, props.onDateClick, props.dates, props.checkInActive, props.lastDayPreviousMonth)}
+      {addRows(
+        props.reservationData,
+        props.onDateClick,
+        props.dates,
+        props.checkInActive,
+        props.lastDayPreviousMonth,
+      )}
     </tbody>
   </table>
 );
