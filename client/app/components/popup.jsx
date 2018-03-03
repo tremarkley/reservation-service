@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import dateShape from '../../data/propShapes';
 import Calendar from './calendar';
-import monthName from '../../data/reservationDataObj';
+import monthName from '../../data/months';
 
 const Popup = props => (
   <div className="pop-up" onClick={props.closeCalendar}>
@@ -95,51 +96,15 @@ Popup.propTypes = {
   showCalendar: PropTypes.bool.isRequired,
   checkInActive: PropTypes.bool.isRequired,
   checkOutActive: PropTypes.bool.isRequired,
-  checkInDate: PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  }),
-  checkOutDate: PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  }),
+  checkInDate: dateShape,
+  checkOutDate: dateShape,
   handleDateClick: PropTypes.func.isRequired,
   handleCheckInClick: PropTypes.func.isRequired,
   handleCheckOutClick: PropTypes.func.isRequired,
   closeCalendar: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
-  lastPossibleCheckInDate: PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  }),
-  lastPossibleCheckOutDate: PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  }),
+  lastPossibleCheckInDate: dateShape,
+  lastPossibleCheckOutDate: dateShape,
 };
 
 Popup.defaultProps = {

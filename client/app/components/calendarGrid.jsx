@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import sampleData from '../../data/sampleData';
+import dateShape from '../../data/propShapes';
 /*  eslint-disable no-unused-vars  */
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
@@ -9,24 +9,6 @@ const getActualDate = function getActualDate(day) {
   return new Date(`${day.month}-${day.day}-${day.year}`);
 };
 
-// const checkDatesEquality = function checkDatesEquality(day1, day2) {
-//   if (day1 === undefined || day2 === undefined) {
-//     return false;
-//   }
-//   if (day1.day === day2.day && day1.month === day2.month && day1.year === day2.year) {
-//     return true;
-//   }
-//   return false;
-// };
-
-//  can only check out on a certain day if the day before is available
-
-//  if check in is active then we want to show everything that is possible for check in
-//  if check out is active and we have a check in selected then anything
-//  before that check in date is unavailable
-//  the only thing that is available is anything that is <= lastPossibleCheckoutDate
-
-//  if check in is not active then checkout is active
 const getDateClass = function getDateClass(
   index,
   days,
@@ -141,70 +123,16 @@ const CalendarGrid = props => (
 );
 
 CalendarGrid.propTypes = {
-  reservationData: PropTypes.arrayOf(PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  })).isRequired,
+  reservationData: PropTypes.arrayOf(dateShape).isRequired,
   onDateClick: PropTypes.func.isRequired,
   dates: PropTypes.shape({
-    checkInDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    checkOutDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    lastPossibleCheckOutDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    lastPossibleCheckInDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
+    checkInDate: dateShape,
+    checkOutDate: dateShape,
+    lastPossibleCheckOutDate: dateShape,
+    lastPossibleCheckInDate: dateShape,
   }).isRequired,
   checkInActive: PropTypes.bool.isRequired,
-  lastDayPreviousMonth: PropTypes.shape({
-    listing_id: PropTypes.number.isRequired,
-    minimum_stay: PropTypes.number.isRequired,
-    maximum_guests: PropTypes.number.isRequired,
-    month: PropTypes.number.isRequired,
-    day: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    price: PropTypes.string.isRequired,
-    available: PropTypes.bool.isRequired,
-  }),
+  lastDayPreviousMonth: dateShape,
 };
 
 CalendarGrid.defaultProps = {

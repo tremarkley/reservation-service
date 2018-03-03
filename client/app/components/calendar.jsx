@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import dateShape from '../../data/propShapes';
 import CalendarGrid from './calendarGrid';
-import monthName from '../../data/reservationDataObj';
+import monthName from '../../data/months';
 /*  eslint-disable no-unused-vars  */
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
@@ -119,46 +120,10 @@ class Calendar extends React.Component {
 Calendar.propTypes = {
   onClick: PropTypes.func.isRequired,
   dates: PropTypes.shape({
-    checkInDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    checkOutDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    lastPossibleCheckOutDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
-    lastPossibleCheckInDate: PropTypes.shape({
-      listing_id: PropTypes.number.isRequired,
-      minimum_stay: PropTypes.number.isRequired,
-      maximum_guests: PropTypes.number.isRequired,
-      month: PropTypes.number.isRequired,
-      day: PropTypes.number.isRequired,
-      year: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
-      available: PropTypes.bool.isRequired,
-    }),
+    checkInDate: dateShape,
+    checkOutDate: dateShape,
+    lastPossibleCheckOutDate: dateShape,
+    lastPossibleCheckInDate: dateShape,
   }).isRequired,
   reservationData: PropTypes.object.isRequired,
   updateReservationData: PropTypes.func.isRequired,
