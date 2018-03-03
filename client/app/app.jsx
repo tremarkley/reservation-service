@@ -103,8 +103,6 @@ class App extends React.Component {
     return lastDate;
   }
 
-  //  this should only be displayed when a check in date has not
-  //  been selected yet and check out date has
   findLastPossibleCheckInDate(date) {
     if (this.state.checkInDate) {
       return this.state.checkInDate;
