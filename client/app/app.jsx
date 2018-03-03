@@ -117,7 +117,7 @@ class App extends React.Component {
       if (this.state.reservationData[`${j}-${date.year}`] !== undefined) {
         let loopStart = this.state.reservationData[`${j}-${date.year}`].length - 1;
         if (j === date.month - 1) {
-          loopStart = index;
+          loopStart = index - 1;
         }
         for (let i = loopStart; i >= 0; i -= 1) {
           if (!this.state.reservationData[`${j}-${date.year}`][i].available) {
