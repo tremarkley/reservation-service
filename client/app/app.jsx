@@ -15,6 +15,8 @@ class App extends React.Component {
       checkOutActive: false,
       checkInDate: undefined,
       checkOutDate: undefined,
+      lastPossibleCheckInDate: undefined,
+      lastPossibleCheckOutDate: undefined,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -24,6 +26,7 @@ class App extends React.Component {
     this.openCalendar = this.openCalendar.bind(this);
     this.closeCalendar = this.closeCalendar.bind(this);
     this.handleClearDates = this.handleClearDates.bind(this);
+    this.findLastPossibleCheckOutDate = this.findLastPossibleCheckOutDate.bind(this);
   }
 
   togglePopup() {
@@ -36,6 +39,11 @@ class App extends React.Component {
     this.setState((prevState) => {
       const nextReservationData = prevState.reservationData;
       nextReservationData[`${month}-${year}`] = data;
+      //  recalculate last possible check out date with new month data
+      if (this.state.checkInDate) {
+        const lastPossibleCheckOutDate = this.findLastPossibleCheckOutDate(this.state.checkInDate);
+        return { reservationData: nextReservationData, lastPossibleCheckOutDate };
+      }
       return { reservationData: nextReservationData };
     });
   }
@@ -69,23 +77,46 @@ class App extends React.Component {
     }
   }
 
+  //  call this every time we get a new month
+  findLastPossibleCheckOutDate(date) {
+    const index = date.day - 1;
+    let lastDate = date;
+    for (let j = date.month - 1; j <= 12; j += 1) {
+      if (this.state.reservationData[`${j}-${date.year}`] !== undefined) {
+        let loopStart = 0;
+        if (j === date.month - 1) {
+          loopStart = index;
+        }
+        for (let i = loopStart; i < this.state.reservationData[`${j}-${date.year}`].length; i += 1) {
+          lastDate = this.state.reservationData[`${j}-${date.year}`][i];
+          if (!this.state.reservationData[`${j}-${date.year}`][i].available) {
+            return lastDate;
+          }
+        }
+      }
+    }
+    return lastDate;
+  }
+
   handleDateClick(day) {
     if (this.state.checkInActive) {
       console.log(`check in: ${JSON.stringify(day)}`);
       const dayDate = new Date(`${day.month}-${day.day}-${day.year}`);
       // if check in date is later than current check out date then we need
       // to set checkout date to undefined
+      const lastPossibleCheckOutDate = this.findLastPossibleCheckOutDate(day);
       this.setState(() => {
+        //  check to see if check out date needs to be cleared
         if (this.state.checkOutDate !== undefined) {
           const checkOutDateObj = new Date(`${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`);
           if (checkOutDateObj <= dayDate) {
             return {
-              checkInDate: day, checkOutDate: undefined, checkInActive: false, checkOutActive: true,
+              checkInDate: day, checkOutDate: undefined, checkInActive: false, checkOutActive: true, lastPossibleCheckOutDate,
             };
           }
         }
         return {
-          checkInDate: day, checkInActive: false, checkOutActive: true,
+          checkInDate: day, checkInActive: false, checkOutActive: true, lastPossibleCheckOutDate,
         };
       });
     } else if (this.state.checkOutActive) {
