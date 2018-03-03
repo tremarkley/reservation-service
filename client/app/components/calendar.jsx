@@ -63,6 +63,11 @@ class Calendar extends React.Component {
   }
 
   render() {
+    let lastDayPreviousMonth;
+    const previousMonth = this.props.reservationData[`${this.state.month - 1}-${this.state.year}`];
+    if (previousMonth !== undefined) {
+      lastDayPreviousMonth = previousMonth[previousMonth.length - 1];
+    }
     return (
       <div className="outer-calendar-pop-up">
         <div className="inner-calendar-pop-up">
@@ -83,7 +88,7 @@ class Calendar extends React.Component {
             </div>
             {
               this.props.reservationData[`${this.state.month}-${this.state.year}`] === undefined ? null
-              : <CalendarGrid reservationData={this.props.reservationData[`${this.state.month}-${this.state.year}`]} onDateClick={this.props.onClick} dates={this.props.dates} />
+              : <CalendarGrid reservationData={this.props.reservationData[`${this.state.month}-${this.state.year}`]} onDateClick={this.props.onClick} dates={this.props.dates} checkInActive={this.props.checkInActive} lastDayPreviousMonth={lastDayPreviousMonth} />
             }
           </div>
           <div className="calendar-footer">
@@ -134,10 +139,31 @@ Calendar.propTypes = {
       price: PropTypes.string.isRequired,
       available: PropTypes.bool.isRequired,
     }),
+    lastPossibleCheckOutDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+    lastPossibleCheckInDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
   }).isRequired,
   reservationData: PropTypes.object.isRequired,
   updateReservationData: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
+  checkInActive: PropTypes.bool.isRequired,
 };
 
 export default Calendar;

@@ -46,7 +46,17 @@ const Popup = props => (
                 </div>
                 {
                   props.showCalendar ?
-                    <Calendar dates={{ checkInDate: props.checkInDate, checkOutDate: props.checkOutDate }} onClick={props.handleDateClick} reservationData={props.reservationData} updateReservationData={props.updateReservationData} handleClearDates={props.handleClearDates} /> : null
+                    <Calendar
+                      dates={
+                      {
+                        checkInDate: props.checkInDate, checkOutDate: props.checkOutDate, lastPossibleCheckInDate: props.lastPossibleCheckInDate, lastPossibleCheckOutDate: props.lastPossibleCheckOutDate,
+                      }}
+                      checkInActive={props.checkInActive}
+                      onClick={props.handleDateClick}
+                      reservationData={props.reservationData}
+                      updateReservationData={props.updateReservationData}
+                      handleClearDates={props.handleClearDates}
+                    /> : null
                 }
               </div>
             </div>
@@ -110,11 +120,33 @@ Popup.propTypes = {
   handleCheckOutClick: PropTypes.func.isRequired,
   closeCalendar: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
+  lastPossibleCheckInDate: PropTypes.shape({
+    listing_id: PropTypes.number.isRequired,
+    minimum_stay: PropTypes.number.isRequired,
+    maximum_guests: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+    day: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
+    available: PropTypes.bool.isRequired,
+  }),
+  lastPossibleCheckOutDate: PropTypes.shape({
+    listing_id: PropTypes.number.isRequired,
+    minimum_stay: PropTypes.number.isRequired,
+    maximum_guests: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+    day: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
+    available: PropTypes.bool.isRequired,
+  }),
 };
 
 Popup.defaultProps = {
   checkInDate: undefined,
   checkOutDate: undefined,
+  lastPossibleCheckInDate: undefined,
+  lastPossibleCheckOutDate: undefined,
 };
 
 export default Popup;

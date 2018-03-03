@@ -19,13 +19,23 @@ const getActualDate = function getActualDate(day) {
 //   return false;
 // };
 
-const getDateClass = function getDateClass(day, dates) {
-  if (!day.available) {
-    return 'not-available';
-  }
-  if (dates.checkInDate === undefined && dates.checkOutDate === undefined) {
-    return '';
-  } else if (dates.checkInDate === day || dates.checkOutDate === day) {
+//  can only check out on a certain day if the day before is available
+
+//  if check in is active then we want to show everything that is possible for check in
+//  if check out is active and we have a check in selected then anything
+//  before that check in date is unavailable
+//  the only thing that is available is anything that is <= lastPossibleCheckoutDate
+
+//  if check in is not active then checkout is active
+const getDateClass = function getDateClass(
+  index,
+  days,
+  dates,
+  checkInActive,
+  lastDayPreviousMonth,
+) {
+  const day = days[index];
+  if (dates.checkInDate === day || dates.checkOutDate === day) {
     return 'date-selected';
   } else if (dates.checkInDate !== undefined && dates.checkOutDate !== undefined) {
     if (getActualDate(day) > getActualDate(dates.checkInDate)
@@ -33,10 +43,52 @@ const getDateClass = function getDateClass(day, dates) {
       return 'between-selected';
     }
   }
+  //  check out is active
+  if (!checkInActive) {
+    if (dates.checkInDate !== undefined) {
+      if (getActualDate(day) < getActualDate(dates.checkInDate)
+        || getActualDate(day) > getActualDate(dates.lastPossibleCheckOutDate)) {
+        return 'not-available';
+      }
+    } else if (dates.checkInDate === undefined) {
+      //  no check in date defined yet, then no lastpossiblecheckoutdate
+      //  check out date is available as long as the day before it is available
+      if (index > 0) {
+        if (days[index - 1].available) {
+          return '';
+        }
+        return 'not-available';
+      } else if (lastDayPreviousMonth !== undefined) {
+        if (lastDayPreviousMonth.available) {
+          return '';
+        }
+        return 'not-available';
+      } else if (lastDayPreviousMonth === undefined) {
+        return 'not-available';
+      }
+    }
+  }
+  //  selecting check in
+  if (checkInActive) {
+    if (dates.lastPossibleCheckInDate !== undefined) {
+      if (getActualDate(day) < getActualDate(dates.lastPossibleCheckInDate)) {
+        return 'not-available';
+      }
+    }
+    if (dates.lastPossibleCheckOutDate !== undefined) {
+      if (getActualDate(day) > getActualDate(dates.lastPossibleCheckOutDate)) {
+        return 'not-available';
+      }
+      return '';
+    }
+    if (!day.available) {
+      return 'not-available';
+    }
+  }
   return '';
 };
 
-const addRows = function addRows(days, clickHandler, dates) {
+const addRows = function addRows(days, clickHandler, dates, checkInActive, lastDayPreviousMonth) {
   let cells = [];
   const results = [];
   for (let i = 0; i < days.length; i += 1) {
@@ -55,8 +107,8 @@ const addRows = function addRows(days, clickHandler, dates) {
     }
 
     // if date is between check in and check out then give it class between
-
-    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className={`date ${getDateClass(days[i], dates)}`} onClick={days[i].available ? () => clickHandler(days[i]) : null}>{days[i].day}</td>);
+    const dateClass = getDateClass(i, days, dates, checkInActive, lastDayPreviousMonth);
+    cells.push(<td key={`date-${(results.length + 1) * cells.length}`} className={`date ${dateClass}`} onClick={dateClass !== 'not-available' ? () => clickHandler(days[i]) : null}>{days[i].day}</td>);
 
     //  last day of the month
     if (i === days.length - 1) {
@@ -75,7 +127,7 @@ const addRows = function addRows(days, clickHandler, dates) {
 const CalendarGrid = props => (
   <table className="calendar-grid">
     <tbody>
-      {addRows(props.reservationData, props.onDateClick, props.dates)}
+      {addRows(props.reservationData, props.onDateClick, props.dates, props.checkInActive, props.lastDayPreviousMonth)}
     </tbody>
   </table>
 );
@@ -113,7 +165,42 @@ CalendarGrid.propTypes = {
       price: PropTypes.string.isRequired,
       available: PropTypes.bool.isRequired,
     }),
+    lastPossibleCheckOutDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
+    lastPossibleCheckInDate: PropTypes.shape({
+      listing_id: PropTypes.number.isRequired,
+      minimum_stay: PropTypes.number.isRequired,
+      maximum_guests: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
+      available: PropTypes.bool.isRequired,
+    }),
   }).isRequired,
+  checkInActive: PropTypes.bool.isRequired,
+  lastDayPreviousMonth: PropTypes.shape({
+    listing_id: PropTypes.number.isRequired,
+    minimum_stay: PropTypes.number.isRequired,
+    maximum_guests: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+    day: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
+    available: PropTypes.bool.isRequired,
+  }),
+};
+
+CalendarGrid.defaultProps = {
+  lastDayPreviousMonth: undefined,
 };
 
 export default CalendarGrid;

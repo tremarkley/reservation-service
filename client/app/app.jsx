@@ -60,7 +60,10 @@ class App extends React.Component {
 
   handleClearDates() {
     this.setState({
-      checkInDate: undefined, checkOutDate: undefined, lastPossibleCheckOutDate: undefined, lastPossibleCheckInDate: undefined 
+      checkInDate: undefined,
+      checkOutDate: undefined,
+      lastPossibleCheckOutDate: undefined,
+      lastPossibleCheckInDate: undefined,
     });
   }
 
@@ -140,12 +143,21 @@ class App extends React.Component {
           const checkOutDateObj = new Date(`${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`);
           if (checkOutDateObj <= dayDate) {
             return {
-              checkInDate: day, checkOutDate: undefined, checkInActive: false, checkOutActive: true, lastPossibleCheckOutDate,
+              checkInDate: day,
+              checkOutDate: undefined,
+              checkInActive: false,
+              checkOutActive: true,
+              lastPossibleCheckOutDate,
+              lastPossibleCheckInDate: day,
             };
           }
         }
         return {
-          checkInDate: day, checkInActive: false, checkOutActive: true, lastPossibleCheckOutDate,
+          checkInDate: day,
+          checkInActive: false,
+          checkOutActive: true,
+          lastPossibleCheckOutDate,
+          lastPossibleCheckInDate: day,
         };
       });
     } else if (this.state.checkOutActive) {
@@ -157,7 +169,11 @@ class App extends React.Component {
         //  if we have a check in and check out date then close calendar
         if (this.state.checkInDate) {
           this.setState({
-            checkOutDate: day, showCalendar: false, checkOutActive: false, checkInActive: false, lastPossibleCheckInDate,
+            checkOutDate: day,
+            showCalendar: false,
+            checkOutActive: false,
+            checkInActive: false,
+            lastPossibleCheckInDate,
           });
         } else {
           this.setState({
@@ -190,6 +206,8 @@ class App extends React.Component {
               handleCheckOutClick={this.handleCheckOutClick}
               closeCalendar={this.closeCalendar}
               handleClearDates={this.handleClearDates}
+              lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
+              lastPossibleCheckOutDate={this.state.lastPossibleCheckOutDate}
             /> : null
         }
       </div>
