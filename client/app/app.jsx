@@ -23,6 +23,7 @@ class App extends React.Component {
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
     this.openCalendar = this.openCalendar.bind(this);
     this.closeCalendar = this.closeCalendar.bind(this);
+    this.handleClearDates = this.handleClearDates.bind(this);
   }
 
   togglePopup() {
@@ -47,6 +48,10 @@ class App extends React.Component {
   handleCheckOutClick() {
     this.openCalendar();
     this.setState({ checkOutActive: true, checkInActive: false });
+  }
+
+  handleClearDates() {
+    this.setState({ checkInDate: undefined, checkOutDate: undefined });
   }
 
   openCalendar() {
@@ -123,6 +128,7 @@ class App extends React.Component {
               handleCheckInClick={this.handleCheckInClick}
               handleCheckOutClick={this.handleCheckOutClick}
               closeCalendar={this.closeCalendar}
+              handleClearDates={this.handleClearDates}
             /> : null
         }
       </div>

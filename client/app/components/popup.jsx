@@ -46,7 +46,7 @@ const Popup = props => (
                 </div>
                 {
                   props.showCalendar ?
-                    <Calendar dates={{ checkInDate: props.checkInDate, checkOutDate: props.checkOutDate }} onClick={props.handleDateClick} reservationData={props.reservationData} updateReservationData={props.updateReservationData} /> : null
+                    <Calendar dates={{ checkInDate: props.checkInDate, checkOutDate: props.checkOutDate }} onClick={props.handleDateClick} reservationData={props.reservationData} updateReservationData={props.updateReservationData} handleClearDates={props.handleClearDates} /> : null
                 }
               </div>
             </div>
@@ -109,6 +109,7 @@ Popup.propTypes = {
   handleCheckInClick: PropTypes.func.isRequired,
   handleCheckOutClick: PropTypes.func.isRequired,
   closeCalendar: PropTypes.func.isRequired,
+  handleClearDates: PropTypes.func.isRequired,
 };
 
 Popup.defaultProps = {

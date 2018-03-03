@@ -92,9 +92,17 @@ class Calendar extends React.Component {
                 <div>Minimum Stay Varies</div>
                 <div>Updated Today</div>
               </small>
-              <div className="clear-dates-div">
-                <button className="clear-dates-btn">Clear dates</button>
-              </div>
+              {
+                this.props.dates.checkInDate || this.props.dates.checkOutDate ?
+                  <div className="clear-dates-div">
+                    <button
+                      className="clear-dates-btn"
+                      onClick={this.props.handleClearDates}
+                    >
+                    Clear dates
+                    </button>
+                  </div> : null
+              }
             </div>
           </div>
         </div>
@@ -129,6 +137,7 @@ Calendar.propTypes = {
   }).isRequired,
   reservationData: PropTypes.object.isRequired,
   updateReservationData: PropTypes.func.isRequired,
+  handleClearDates: PropTypes.func.isRequired,
 };
 
 export default Calendar;
