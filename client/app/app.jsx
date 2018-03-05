@@ -73,8 +73,7 @@ class App extends React.Component {
     });
   }
 
-  closeCalendar(event) {
-    const datesDiv = document.getElementById('dates-container');
+  closeCalendar(event, datesDiv) {
     if (!datesDiv.contains(event.target) && this.state.showCalendar) {
       this.setState({
         showCalendar: false, checkOutActive: false, checkInActive: false,
