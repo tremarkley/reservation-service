@@ -81,7 +81,8 @@ class App extends React.Component {
     }
   }
 
-  //  call this every time we get a new month
+  //  call this every time we get a new month, if there is a check in date
+  //  passes in the current check in date
   findLastPossibleCheckOutDate(date) {
     const index = date.day - 1;
     let lastDate = date;
@@ -101,7 +102,7 @@ class App extends React.Component {
     }
     return lastDate;
   }
-
+  //  date passed in is the check out date
   findLastPossibleCheckInDate(date) {
     if (this.state.checkInDate) {
       return this.state.checkInDate;
