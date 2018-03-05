@@ -1,9 +1,14 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import mockdate from 'mockdate';
 import App from '../app/app';
 import reservationData from './test_data/reservationData';
 
 describe('<App /> component', () => {
+  beforeAll(() => {
+    mockdate.set('1/1/2018');
+  });
+
   it('Clicking book button should render popup component', () => {
     const wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
@@ -51,7 +56,29 @@ describe('<App /> component', () => {
     });
   });
 
-  // it('Should calculate lastPossibleCheckInDate when a checkout is selected', () => {
-  //   const wrapper = 
-  // })
+  it('Should calculate lastPossibleCheckInDate when a checkout is selected', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+    instance.updateReservationData(reservationData.array, 0, 2018);
+    const lastPossibleCheckIn = instance.findLastPossibleCheckInDate({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 9,
+      year: 2018,
+      price: '735.00',
+      available: false,
+    });
+    expect(lastPossibleCheckIn).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 7,
+      year: 2018,
+      price: '237.00',
+      available: true,
+    });
+  });
 });
