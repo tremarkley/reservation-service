@@ -125,7 +125,11 @@ Calendar.propTypes = {
     lastPossibleCheckOutDate: dateShape,
     lastPossibleCheckInDate: dateShape,
   }).isRequired,
-  reservationData: PropTypes.object.isRequired,
+  reservationData: PropTypes.shape({
+    monthYear: PropTypes.arrayOf({
+      dateShape,
+    }),
+  }).isRequired,
   updateReservationData: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
   checkInActive: PropTypes.bool.isRequired,
