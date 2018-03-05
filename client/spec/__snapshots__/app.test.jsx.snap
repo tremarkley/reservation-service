@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> component Clicking book button should render popup component 1`] = `
+<div
+  className="reservations-footer"
+>
+  <div
+    className="content"
+  >
+    <button
+      className="bookButton"
+      onClick={[Function]}
+    >
+      Book
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<App /> component Clicking book button should render popup component 2`] = `
+<div
+  className="reservations-footer"
+>
+  <div
+    className="content"
+  >
+    <button
+      className="bookButton"
+      onClick={[Function]}
+    >
+      Book
+    </button>
+  </div>
+  <Popup
+    checkInActive={false}
+    checkOutActive={false}
+    closeCalendar={[Function]}
+    handleCheckInClick={[Function]}
+    handleCheckOutClick={[Function]}
+    handleClearDates={[Function]}
+    handleDateClick={[Function]}
+    onClose={[Function]}
+    reservationData={Object {}}
+    showCalendar={false}
+    updateReservationData={[Function]}
+  />
+</div>
+`;
