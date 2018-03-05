@@ -14,6 +14,7 @@ describe('<App /> component', () => {
     wrapper = shallow(<App />);
     instance = wrapper.instance();
     instance.updateReservationData(reservationData['0-2018'], 0, 2018);
+    instance.updateReservationData(reservationData['1-2018'], 1, 2018);
   });
 
   it('Clicking book button should render popup component', () => {
@@ -55,6 +56,29 @@ describe('<App /> component', () => {
       day: 6,
       year: 2018,
       price: '284.00',
+      available: false,
+    });
+  });
+
+  it('Should calculate lastPossibleCheckOutDate across months when a checkin is selected', () => {
+    const lastPossibleCheckOut = instance.findLastPossibleCheckOutDate({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 27,
+      year: 2018,
+      price: '757.00',
+      available: true,
+    });
+    expect(lastPossibleCheckOut).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 2,
+      day: 7,
+      year: 2018,
+      price: '637.00',
       available: false,
     });
   });
