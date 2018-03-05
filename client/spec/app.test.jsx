@@ -13,11 +13,10 @@ describe('<App /> component', () => {
   beforeEach(() => {
     wrapper = shallow(<App />);
     instance = wrapper.instance();
-    instance.updateReservationData(reservationData.array, 0, 2018);
+    instance.updateReservationData(reservationData['0-2018'], 0, 2018);
   });
 
   it('Clicking book button should render popup component', () => {
-    // const wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
     wrapper.find('button').simulate('click');
     expect(wrapper).toMatchSnapshot();
@@ -38,9 +37,6 @@ describe('<App /> component', () => {
   });
 
   it('Should calculate lastPossibleCheckOutDate when a checkin is selected', () => {
-    // const wrapper = shallow(<App />);
-    // const instance = wrapper.instance();
-    // instance.updateReservationData(reservationData.array, 0, 2018);
     const lastPossibleCheckOut = instance.findLastPossibleCheckOutDate({
       listing_id: 1,
       minimum_stay: 3,
@@ -64,9 +60,6 @@ describe('<App /> component', () => {
   });
 
   it('Should calculate lastPossibleCheckInDate when a checkout is selected', () => {
-    // const wrapper = shallow(<App />);
-    // const instance = wrapper.instance();
-    // instance.updateReservationData(reservationData.array, 0, 2018);
     const lastPossibleCheckIn = instance.findLastPossibleCheckInDate({
       listing_id: 1,
       minimum_stay: 3,
