@@ -106,6 +106,29 @@ describe('<App /> component', () => {
     });
   });
 
+  it('Should calculate lastPossibleCheckInDate when a checkout is selected across months', () => {
+    const lastPossibleCheckIn = instance.findLastPossibleCheckInDate({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 2,
+      day: 7,
+      year: 2018,
+      price: '637.00',
+      available: false,
+    });
+    expect(lastPossibleCheckIn).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 27,
+      year: 2018,
+      price: '757.00',
+      available: true,
+    });
+  });
+
   it('Should set lastPossibleCheckInDate as the current check in date if there is one', () => {
     instance.handleCheckInClick();
     instance.handleDateClick({
