@@ -162,4 +162,133 @@ describe('<App /> component', () => {
       available: true,
     });
   });
+
+  it('Should set check in date when check in is active and a date is clicked', () => {
+    instance.handleCheckInClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    expect(instance.state.checkInDate).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+  });
+
+  it('Should set check out date when check out is active and a date is clicked', () => {
+    instance.handleCheckOutClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    expect(instance.state.checkOutDate).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+  });
+
+  it('Should switch to check out active after a check in date is selected', () => {
+    instance.handleCheckInClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    expect(instance.state.checkOutActive).toBe(true);
+  });
+
+  it('Should switch to check in active after a check out date is selected', () => {
+    instance.handleCheckOutClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    expect(instance.state.checkInActive).toBe(true);
+  });
+
+  it('Should make check in and check out active false after selecting check out and check in date', () => {
+    instance.handleCheckInClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 24,
+      year: 2018,
+      price: '341.00',
+      available: true,
+    });
+    expect(instance.state.checkInActive).toBe(false);
+    expect(instance.state.checkOutActive).toBe(false);
+  });
+
+  it('Should change show calendar to false after selecting check out and check in date', () => {
+    instance.handleCheckInClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 23,
+      year: 2018,
+      price: '642.00',
+      available: true,
+    });
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 24,
+      year: 2018,
+      price: '341.00',
+      available: true,
+    });
+    expect(instance.state.showCalendar).toBe(false);
+  });
 });
