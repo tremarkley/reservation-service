@@ -97,7 +97,11 @@ const Popup = (props) => {
 
 Popup.propTypes = {
   onClose: PropTypes.func.isRequired,
-  reservationData: PropTypes.object.isRequired,
+  reservationData: PropTypes.shape({
+    monthYear: PropTypes.arrayOf({
+      dateShape,
+    }),
+  }).isRequired,
   updateReservationData: PropTypes.func.isRequired,
   showCalendar: PropTypes.bool.isRequired,
   checkInActive: PropTypes.bool.isRequired,
