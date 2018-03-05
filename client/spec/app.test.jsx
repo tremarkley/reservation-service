@@ -8,6 +8,7 @@ describe('<App /> component', () => {
   beforeAll(() => {
     mockdate.set('1/1/2018');
   });
+
   let wrapper;
   let instance;
   beforeEach(() => {
