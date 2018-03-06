@@ -54,12 +54,6 @@ class App extends React.Component {
       const lastPossibleCheckInDate = this.findLastPossibleCheckInDate(this.state.checkOutDate);
       this.setState({ checkInActive: true, checkOutActive: false, lastPossibleCheckInDate });
     });
-      // const lastPossibleCheckInDate = this.findLastPossibleCheckInDate(this.state.checkOutDate);
-      // if (lastPossibleCheckInDate !== null) {
-      //   return { checkInActive: true, checkOutActive: false, lastPossibleCheckInDate };
-      // }
-      // return { checkInActive: true, checkOutActive: false, lastPossibleCheckInDate: undefined };
-    // });
   }
 
   handleCheckOutClick() {

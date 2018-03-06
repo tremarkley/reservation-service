@@ -142,7 +142,6 @@ describe('<App /> component', () => {
       price: '634.00',
       available: true,
     });
-    console.log('CHECK OUT ACTIVE: ' + instance.state.checkOutActive);
     const lastPossibleCheckIn = instance.findLastPossibleCheckInDate({
       listing_id: 1,
       minimum_stay: 3,
@@ -161,6 +160,41 @@ describe('<App /> component', () => {
       day: 5,
       year: 2018,
       price: '634.00',
+      available: true,
+    });
+  });
+
+  it('Should set lastPossibleCheckInDate as the earliest available date if check in is active and a checkout is selected', () => {
+    instance.handleCheckInClick();
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 5,
+      year: 2018,
+      price: '634.00',
+      available: true,
+    });
+    instance.handleDateClick({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 6,
+      year: 2018,
+      price: '284.00',
+      available: false,
+    });
+    instance.handleCheckInClick();
+    expect(instance.state.lastPossibleCheckInDate).toEqual({
+      listing_id: 1,
+      minimum_stay: 3,
+      maximum_guests: 2,
+      month: 1,
+      day: 1,
+      year: 2018,
+      price: '163.00',
       available: true,
     });
   });
