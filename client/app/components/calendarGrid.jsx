@@ -54,7 +54,6 @@ const getDateClass = function getDateClass(
   }
   //  selecting check in
   if (checkInActive) {
-    // debugger
     if (dates.lastPossibleCheckInDate !== undefined) {
       if (getActualDate(day) < getActualDate(dates.lastPossibleCheckInDate)) {
         return 'not-available';
