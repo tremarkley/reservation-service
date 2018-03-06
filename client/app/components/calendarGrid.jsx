@@ -139,4 +139,4 @@ CalendarGrid.defaultProps = {
   lastDayPreviousMonth: undefined,
 };
 
-export default CalendarGrid;
+export default { CalendarGrid, getActualDate, getDateClass };

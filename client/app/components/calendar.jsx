@@ -2,11 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import dateShape from '../../data/propShapes';
-import CalendarGrid from './calendarGrid';
+import obj from './calendarGrid';
 import monthName from '../../data/months';
 /*  eslint-disable no-unused-vars  */
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
+
+const { CalendarGrid } = obj;
 
 class Calendar extends React.Component {
   constructor(props) {

@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CalendarGrid /> Component Passing in a check in and check out date should render with dates selected 1`] = `
+<table
+  className="calendar-grid"
+>
+  <tbody>
+    <tr
+      key="row-0"
+    >
+      <td
+        key="date-0"
+      />
+      <td
+        className="date not-available"
+        key="date-1"
+        onClick={null}
+      >
+        1
+      </td>
+      <td
+        className="date not-available"
+        key="date-2"
+        onClick={null}
+      >
+        2
+      </td>
+      <td
+        className="date date-selected"
+        key="date-3"
+        onClick={[Function]}
+      >
+        3
+      </td>
+      <td
+        className="date date-selected"
+        key="date-4"
+        onClick={[Function]}
+      >
+        4
+      </td>
+      <td
+        className="date "
+        key="date-5"
+        onClick={[Function]}
+      >
+        5
+      </td>
+      <td
+        className="date "
+        key="date-6"
+        onClick={[Function]}
+      >
+        6
+      </td>
+    </tr>
+    <tr
+      key="row-1"
+    >
+      <td
+        className="date not-available"
+        key="date-0"
+        onClick={null}
+      >
+        7
+      </td>
+      <td
+        className="date not-available"
+        key="date-2"
+        onClick={null}
+      >
+        8
+      </td>
+      <td
+        className="date not-available"
+        key="date-4"
+        onClick={null}
+      >
+        9
+      </td>
+      <td
+        className="date not-available"
+        key="date-6"
+        onClick={null}
+      >
+        10
+      </td>
+      <td
+        className="date not-available"
+        key="date-8"
+        onClick={null}
+      >
+        11
+      </td>
+      <td
+        className="date not-available"
+        key="date-10"
+        onClick={null}
+      >
+        12
+      </td>
+      <td
+        className="date not-available"
+        key="date-12"
+        onClick={null}
+      >
+        13
+      </td>
+    </tr>
+    <tr
+      key="row-2"
+    >
+      <td
+        className="date not-available"
+        key="date-0"
+        onClick={null}
+      >
+        14
+      </td>
+      <td
+        className="date not-available"
+        key="date-3"
+        onClick={null}
+      >
+        15
+      </td>
+      <td
+        className="date not-available"
+        key="date-6"
+        onClick={null}
+      >
+        16
+      </td>
+      <td
+        className="date not-available"
+        key="date-9"
+        onClick={null}
+      >
+        17
+      </td>
+      <td
+        className="date not-available"
+        key="date-12"
+        onClick={null}
+      >
+        18
+      </td>
+      <td
+        className="date not-available"
+        key="date-15"
+        onClick={null}
+      >
+        19
+      </td>
+      <td
+        className="date not-available"
+        key="date-18"
+        onClick={null}
+      >
+        20
+      </td>
+    </tr>
+    <tr
+      key="row-3"
+    >
+      <td
+        className="date not-available"
+        key="date-0"
+        onClick={null}
+      >
+        21
+      </td>
+      <td
+        className="date not-available"
+        key="date-4"
+        onClick={null}
+      >
+        22
+      </td>
+      <td
+        className="date not-available"
+        key="date-8"
+        onClick={null}
+      >
+        23
+      </td>
+      <td
+        className="date not-available"
+        key="date-12"
+        onClick={null}
+      >
+        24
+      </td>
+      <td
+        className="date not-available"
+        key="date-16"
+        onClick={null}
+      >
+        25
+      </td>
+      <td
+        className="date not-available"
+        key="date-20"
+        onClick={null}
+      >
+        26
+      </td>
+      <td
+        className="date not-available"
+        key="date-24"
+        onClick={null}
+      >
+        27
+      </td>
+    </tr>
+    <tr
+      key="row-4"
+    >
+      <td
+        className="date not-available"
+        key="date-0"
+        onClick={null}
+      >
+        28
+      </td>
+      <td
+        className="date not-available"
+        key="date-5"
+        onClick={null}
+      >
+        29
+      </td>
+      <td
+        className="date not-available"
+        key="date-10"
+        onClick={null}
+      >
+        30
+      </td>
+      <td
+        className="date not-available"
+        key="date-15"
+        onClick={null}
+      >
+        31
+      </td>
+      <td
+        key="date-20"
+      />
+      <td
+        key="date-25"
+      />
+      <td
+        key="date-30"
+      />
+    </tr>
+  </tbody>
+</table>
+`;
