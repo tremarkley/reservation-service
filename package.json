@@ -15,8 +15,8 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "seed-test": "knex seed:run --env test",
-    "create-db": "psql -h localhost postgres -f ./db/schema.sql",
-    "create-db-test": "psql -h localhost postgres -f ./db/schema_test.sql"
+    "create-db": "psql postgres -f ./db/schema.sql",
+    "create-db-test": "psql postgres -f ./db/schema_test.sql"
   },
   "dependencies": {
     "babel-loader": "^7.1.3",
