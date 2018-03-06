@@ -1,8 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.43;
   color: #484848;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  max-width: 100%;
+  display: table;
 }
 
 button {
@@ -27,7 +38,7 @@ button:focus {
 .content {
   margin: 0 20%;
   padding: 11px 0;
-  height: 72%;
+  height: 100%;
 }
 
 .bookButton {
@@ -120,10 +131,10 @@ input {
   padding: 0px;
   padding-bottom: 4px;
   word-wrap: break-word;
-  font-size: 12px !important;
-  line-height: 16px !important;
-  letter-spacing: 0.2px !important;
-  color: #484848 !important;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: #484848;
 }
 
 #checkin, #checkout, .hyphen {
@@ -153,10 +164,10 @@ input {
 }
 
 .check-in-text, .check-out-text {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  display: inline !important;
-  padding: 4px 6px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline;
+  padding: 4px 6px;
 }
 
 .dates-container {
@@ -177,7 +188,7 @@ input {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 16px;
   letter-spacing: -0.3px;
   padding: 9px 0;
@@ -267,4 +278,225 @@ input {
   padding-bottom: 0px;
   font-weight: 350;
   color: #ffffff;
+}
+
+.outer-calendar-pop-up {
+  z-index: 1;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+.inner-calendar-pop-up {
+  width: 319px;
+  position: relative;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+}
+
+.calendar-holder {
+  width: 318px;
+  min-height: 298px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  padding: 0 13px;
+  margin-bottom: 5px;
+  vertical-align: top;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.calendar-footer-content {
+  bottom: 0px;
+  padding: 24px;
+  padding-top: 0px;
+}
+
+.fine-print {
+  font-weight: normal;
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+}
+
+.clear-dates-div {
+  text-align: right;
+  margin-top: 4px;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #484848;
+}
+
+.clear-dates-btn {
+  color: #008489;
+  font: inherit;
+  text-decoration: none;
+  background: transparent;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  text-align: left;
+}
+
+.left-arrow {
+  background-image: url('../images/left-arrow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  line-height: 0.78;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #e4e7e7;
+  background-color: #fff;
+  color: #757575;
+  border-radius: 3px;
+  padding: 6px 9px;
+  top: 18px;
+  position: absolute;
+  left: 22px;
+}
+
+.right-arrow {
+  background-image: url('../images/right-arrow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  line-height: 0.78;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #e4e7e7;
+  background-color: #fff;
+  color: #757575;
+  border-radius: 3px;
+  padding: 6px 9px;
+  top: 18px;
+  position: absolute;
+  right: 22px;
+}
+
+.left-arrow, .right-arrow {
+  height: 33px;
+  width: 39px;
+}
+
+.calendar-header {
+  color: #565a5c;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 37px;
+  caption-side: initial;
+  margin: 0;
+}
+
+.days-of-week-div {
+  color: #757575;
+  position: absolute;
+  top: 62px;
+  z-index: 2;
+  padding: 0 13px;
+  text-align: left;
+}
+
+.days {
+  list-style: none !important;
+  margin: 1px 0 !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  font-size: 14px !important;
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+
+.day {
+  display: inline-block;
+  text-align: center;
+  width: 39px;
+}
+
+.calendar-grid {
+  position: relative;
+  left: 12px;
+}
+
+.date {
+  width: 39px;
+  height: 38px;
+  border: 1px solid rgb(228, 231, 231);
+  color: rgb(86, 90, 92);
+  background: rgb(255, 255, 255);
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  text-align: center !important;
+}
+
+.date:hover {
+  background: rgb(228, 231, 231);
+}
+
+.check-in-text.active, .check-out-text.active {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  display: inline !important;
+  padding: 4px 6px !important;
+  background: #008489 !important;
+  border-color: #008489 !important;
+  border-radius: 4px !important;
+  color: #fff !important;
+}
+
+.date.date-selected {
+  border: rgb(0, 132, 137);
+  color: rgb(255, 255, 255);
+  background: rgb(0, 132, 137);
+  cursor: default !important;
+}
+
+.date.between-selected {
+  border: 1px solid rgb(51, 218, 205);
+  color: rgb(255, 255, 255);
+  background: rgb(102, 226, 218);
+  cursor: default !important;
+}
+
+.date.between-selected:hover {
+  background: rgb(51, 226, 218);
+}
+
+.date.not-available {
+  border: 1px double rgb(228, 231, 231);
+  color: rgb(220, 224, 224);
+  cursor: default !important;
+  text-decoration: line-through;
+}
+
+.date.not-available:hover {
+  background: #fff;
 }

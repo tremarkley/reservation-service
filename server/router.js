@@ -8,7 +8,8 @@ router.use(bodyparser.urlencoded({ extended: true }));
 router.use(bodyparser.json());
 
 router.get('/:id', (req, res) => {
-  reservations.getReservationDataForMonth(req.params.id, req.body.month, req.body.year)
+  console.log(`req.body: ${JSON.stringify(req.query)}`);
+  reservations.getReservationDataForMonth(req.params.id, req.query.month, req.query.year)
     .then((reservationsObj) => {
       res.send(reservationsObj);
     })

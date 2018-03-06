@@ -5,6 +5,7 @@ const knex = require('../../db/knex.js');
 const getReservationDataForMonth =
 function getReservationDataForMonth(listingId, month, year) {
   return new Promise((resolve, reject) => {
+    console.log(`Calling get Reservation Data: ${listingId}, ${month}, ${year}`);
     knex('dates').where({ month, year }).select('id')
       .then((dateIdObjects) => {
         const dateIds = [];

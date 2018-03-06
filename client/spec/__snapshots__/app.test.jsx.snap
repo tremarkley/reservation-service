@@ -1,0 +1,1092 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> component Clicking book button should render popup component 1`] = `
+<div
+  className="reservations-footer"
+>
+  <div
+    className="content"
+  >
+    <button
+      className="bookButton"
+      onClick={[Function]}
+    >
+      Book
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<App /> component Clicking book button should render popup component 2`] = `
+<div
+  className="reservations-footer"
+>
+  <div
+    className="content"
+  >
+    <button
+      className="bookButton"
+      onClick={[Function]}
+    >
+      Book
+    </button>
+  </div>
+  <Popup
+    checkInActive={false}
+    checkOutActive={false}
+    closeCalendar={[Function]}
+    handleCheckInClick={[Function]}
+    handleCheckOutClick={[Function]}
+    handleClearDates={[Function]}
+    handleDateClick={[Function]}
+    onClose={[Function]}
+    reservationData={
+      Object {
+        "0-2018": Array [
+          Object {
+            "available": true,
+            "day": 1,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "163.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 2,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "318.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 3,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "280.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 4,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "177.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 5,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "634.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 6,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "284.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 7,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "237.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 8,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "387.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 9,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "735.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 10,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "347.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 11,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "305.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 12,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "551.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 13,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "131.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 14,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "695.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 15,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "695.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 16,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "572.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 17,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "378.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 18,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "104.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 19,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "458.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 20,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "236.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 21,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "316.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 22,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "798.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 23,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "642.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 24,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "341.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 25,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "284.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 26,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "582.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 27,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "757.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 28,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "155.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 29,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "731.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 30,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "754.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 31,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 1,
+            "price": "296.00",
+            "year": 2018,
+          },
+        ],
+        "1-2018": Array [
+          Object {
+            "available": true,
+            "day": 1,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "679.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 2,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "191.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 3,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "535.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 4,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "234.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 5,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "544.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 6,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "561.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 7,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "637.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 8,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "596.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 9,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "185.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 10,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "754.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 11,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "686.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 12,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "302.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 13,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "747.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 14,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "371.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 15,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "473.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 16,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "502.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 17,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "646.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 18,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "451.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 19,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "344.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 20,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "227.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 21,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "670.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 22,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "626.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 23,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "140.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 24,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "284.00",
+            "year": 2018,
+          },
+          Object {
+            "available": false,
+            "day": 25,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "390.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 26,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "160.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 27,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "144.00",
+            "year": 2018,
+          },
+          Object {
+            "available": true,
+            "day": 28,
+            "listing_id": 1,
+            "maximum_guests": 2,
+            "minimum_stay": 3,
+            "month": 2,
+            "price": "646.00",
+            "year": 2018,
+          },
+        ],
+      }
+    }
+    showCalendar={false}
+    updateReservationData={[Function]}
+  />
+</div>
+`;
+
+exports[`<App /> component Clicking checkin button should render calendar component 1`] = `
+<App>
+  <div
+    className="reservations-footer"
+  >
+    <div
+      className="content"
+    >
+      <button
+        className="bookButton"
+        onClick={[Function]}
+      >
+        Book
+      </button>
+    </div>
+    <Popup
+      checkInActive={true}
+      checkOutActive={false}
+      closeCalendar={[Function]}
+      handleCheckInClick={[Function]}
+      handleCheckOutClick={[Function]}
+      handleClearDates={[Function]}
+      handleDateClick={[Function]}
+      onClose={[Function]}
+      reservationData={Object {}}
+      showCalendar={true}
+      updateReservationData={[Function]}
+    >
+      <div
+        className="pop-up"
+        onClick={[Function]}
+      >
+        <div
+          className="pop-up-content"
+        >
+          <div
+            className="inner-content"
+          >
+            <div
+              className="inner-inner-content"
+            >
+              <div
+                className="close-dialog-container"
+              >
+                <button
+                  className="close-button"
+                  onClick={[Function]}
+                />
+              </div>
+              <div
+                className="reservations-dialog-container"
+              >
+                <div
+                  className="dates"
+                >
+                  <label
+                    className="reservation-label"
+                    htmlFor="dates-container"
+                  >
+                    <span>
+                      Dates
+                    </span>
+                  </label>
+                  <div
+                    className="dates-container"
+                    id="dates-container"
+                  >
+                    <div
+                      className="checkin-container"
+                    >
+                      <input
+                        autoComplete="off"
+                        id="checkin"
+                        name="checkin"
+                        onClick={[Function]}
+                        placeholder="Check In"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="check-in-text active"
+                      >
+                        Check In
+                      </div>
+                    </div>
+                     
+                    <div
+                      className="checkout-container"
+                    >
+                      <input
+                        autoComplete="off"
+                        id="checkout"
+                        name="checkout"
+                        onClick={[Function]}
+                        placeholder="Check Out"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="check-out-text "
+                      >
+                        Check Out
+                      </div>
+                    </div>
+                    <Calendar
+                      checkInActive={true}
+                      dates={
+                        Object {
+                          "checkInDate": undefined,
+                          "checkOutDate": undefined,
+                          "lastPossibleCheckInDate": undefined,
+                          "lastPossibleCheckOutDate": undefined,
+                        }
+                      }
+                      handleClearDates={[Function]}
+                      onClick={[Function]}
+                      reservationData={Object {}}
+                      updateReservationData={[Function]}
+                    >
+                      <div
+                        className="outer-calendar-pop-up"
+                      >
+                        <div
+                          className="inner-calendar-pop-up"
+                        >
+                          <div
+                            className="calendar-holder"
+                          >
+                            <button
+                              className="left-arrow"
+                              onClick={[Function]}
+                            />
+                            <h4
+                              className="calendar-header"
+                            >
+                              January 2018
+                            </h4>
+                            <button
+                              className="right-arrow"
+                              onClick={[Function]}
+                            />
+                            <div
+                              className="days-of-week-div"
+                            >
+                              <ul
+                                className="days"
+                              >
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Su
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Mo
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Tu
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    We
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Th
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Fr
+                                  </small>
+                                </li>
+                                <li
+                                  className="day"
+                                >
+                                  <small>
+                                    Sa
+                                  </small>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div
+                            className="calendar-footer"
+                          >
+                            <div
+                              className="calendar-footer-content"
+                            >
+                              <small
+                                className="fine-print"
+                              >
+                                <div>
+                                  Minimum Stay Varies
+                                </div>
+                                <div>
+                                  Updated Today
+                                </div>
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Calendar>
+                  </div>
+                </div>
+                <div
+                  className="guests"
+                >
+                  <label
+                    className="guest-label"
+                    htmlFor="guests-button"
+                  >
+                    <span>
+                      Guests
+                    </span>
+                  </label>
+                  <button
+                    className="guests-button"
+                    id="guests-button"
+                  >
+                    <div
+                      className="guests-container"
+                    >
+                      <span
+                        className="guest-text"
+                      >
+                        <span>
+                          1 guest
+                        </span>
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div
+                className="booking-button-container"
+              >
+                <button
+                  className="book-now-button"
+                >
+                  <span
+                    className="book-now-span"
+                  >
+                    <div
+                      className="book-now-div"
+                    >
+                      <span>
+                        Book
+                      </span>
+                    </div>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Popup>
+  </div>
+</App>
+`;
+
+exports[`<App /> component Clicking outside of checkin/checkout button should close calendar component 1`] = `
+<App>
+  <div
+    className="reservations-footer"
+  >
+    <div
+      className="content"
+    >
+      <button
+        className="bookButton"
+        onClick={[Function]}
+      >
+        Book
+      </button>
+    </div>
+    <Popup
+      checkInActive={false}
+      checkOutActive={false}
+      closeCalendar={[Function]}
+      handleCheckInClick={[Function]}
+      handleCheckOutClick={[Function]}
+      handleClearDates={[Function]}
+      handleDateClick={[Function]}
+      onClose={[Function]}
+      reservationData={Object {}}
+      showCalendar={false}
+      updateReservationData={[Function]}
+    >
+      <div
+        className="pop-up"
+        onClick={[Function]}
+      >
+        <div
+          className="pop-up-content"
+        >
+          <div
+            className="inner-content"
+          >
+            <div
+              className="inner-inner-content"
+            >
+              <div
+                className="close-dialog-container"
+              >
+                <button
+                  className="close-button"
+                  onClick={[Function]}
+                />
+              </div>
+              <div
+                className="reservations-dialog-container"
+              >
+                <div
+                  className="dates"
+                >
+                  <label
+                    className="reservation-label"
+                    htmlFor="dates-container"
+                  >
+                    <span>
+                      Dates
+                    </span>
+                  </label>
+                  <div
+                    className="dates-container"
+                    id="dates-container"
+                  >
+                    <div
+                      className="checkin-container"
+                    >
+                      <input
+                        autoComplete="off"
+                        id="checkin"
+                        name="checkin"
+                        onClick={[Function]}
+                        placeholder="Check In"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="check-in-text "
+                      >
+                        Check In
+                      </div>
+                    </div>
+                     
+                    <div
+                      className="hyphen"
+                    >
+                      -
+                    </div>
+                    <div
+                      className="checkout-container"
+                    >
+                      <input
+                        autoComplete="off"
+                        id="checkout"
+                        name="checkout"
+                        onClick={[Function]}
+                        placeholder="Check Out"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        className="check-out-text "
+                      >
+                        Check Out
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="guests"
+                >
+                  <label
+                    className="guest-label"
+                    htmlFor="guests-button"
+                  >
+                    <span>
+                      Guests
+                    </span>
+                  </label>
+                  <button
+                    className="guests-button"
+                    id="guests-button"
+                  >
+                    <div
+                      className="guests-container"
+                    >
+                      <span
+                        className="guest-text"
+                      >
+                        <span>
+                          1 guest
+                        </span>
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div
+                className="booking-button-container"
+              >
+                <button
+                  className="book-now-button"
+                >
+                  <span
+                    className="book-now-span"
+                  >
+                    <div
+                      className="book-now-div"
+                    >
+                      <span>
+                        Book
+                      </span>
+                    </div>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Popup>
+  </div>
+</App>
+`;
