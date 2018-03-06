@@ -50,7 +50,16 @@ class App extends React.Component {
 
   handleCheckInClick() {
     this.openCalendar();
-    this.setState({ checkInActive: true, checkOutActive: false });
+    this.setState({ checkInActive: true, checkOutActive: false }, () => {
+      const lastPossibleCheckInDate = this.findLastPossibleCheckInDate(this.state.checkOutDate);
+      this.setState({ checkInActive: true, checkOutActive: false, lastPossibleCheckInDate });
+    });
+      // const lastPossibleCheckInDate = this.findLastPossibleCheckInDate(this.state.checkOutDate);
+      // if (lastPossibleCheckInDate !== null) {
+      //   return { checkInActive: true, checkOutActive: false, lastPossibleCheckInDate };
+      // }
+      // return { checkInActive: true, checkOutActive: false, lastPossibleCheckInDate: undefined };
+    // });
   }
 
   handleCheckOutClick() {
@@ -104,7 +113,10 @@ class App extends React.Component {
   }
   //  date passed in is the check out date
   findLastPossibleCheckInDate(date) {
-    if (this.state.checkInDate) {
+    if (date === undefined) {
+      return undefined;
+    }
+    if (this.state.checkInDate && !this.state.checkInActive) {
       return this.state.checkInDate;
     }
     const index = date.day - 1;
