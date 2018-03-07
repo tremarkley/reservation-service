@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 /*  eslint-disable no-unused-vars  */
 import css from '../styles/styles.css';
