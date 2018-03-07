@@ -82,15 +82,21 @@ class App extends React.Component {
     });
   }
 
-  popupClick(event, datesDiv, checkInDiv, checkOutDiv) {
-    if (!datesDiv.contains(event.target) && this.state.showCalendar) {
+  popupClick(target, datesDiv, checkInDiv, checkOutDiv, guestsDiv) {
+    if (!datesDiv.contains(target) && this.state.showCalendar) {
       this.closeCalendar();
     }
-    if (checkInDiv.contains(event.target)) {
+    if (checkInDiv.contains(target)) {
       this.handleCheckInClick();
     }
-    if (checkOutDiv.contains(event.target)) {
+    if (checkOutDiv.contains(target)) {
       this.handleCheckOutClick();
+    }
+    if (guestsDiv.contains(target)) {
+      this.toggleGuestDialog();
+    }
+    if (!guestsDiv.contains(target) && this.state.showGuestDialog) {
+      this.closeGuestsDialog();
     }
   }
 
@@ -198,9 +204,9 @@ class App extends React.Component {
     }
   }
 
-  openGuestDialog() {
+  toggleGuestDialog() {
     this.setState({
-      showGuestDialog: true,
+      showGuestDialog: !this.state.showGuestDialog,
     });
   }
 

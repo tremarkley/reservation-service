@@ -327,4 +327,32 @@ describe('<App /> component', () => {
     });
     expect(instance.state.showCalendar).toBe(false);
   });
+
+  it('Should set showGuestDialog to true, when guest div is clicked first time', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+  });
+
+  it('Should set showGuestDialog to false, when guest div is clicked when it is already open', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+  });
+
+  it('Should set showGuestDialog to false, when dialog is open and click outside of dialog', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+    wrapper.find('#checkout').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+  });
 });

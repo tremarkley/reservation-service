@@ -10,8 +10,12 @@ const Popup = (props) => {
   let datesDiv = null;
   let checkInDiv = null;
   let checkOutDiv = null;
+  let guestsDiv = null;
   return (
-    <div className="pop-up" onClick={event => props.popupClick(event, datesDiv, checkInDiv, checkOutDiv)}>
+    <div
+      className="pop-up"
+      onClick={event => props.popupClick(event.target, datesDiv, checkInDiv, checkOutDiv, guestsDiv)}
+    >
       <div className="pop-up-content">
         <div className="inner-content">
           <div className="inner-inner-content">
@@ -23,7 +27,11 @@ const Popup = (props) => {
                 <label htmlFor="dates-container" className="reservation-label">
                   <span>Dates</span>
                 </label>
-                <div id="dates-container" className="dates-container" ref={(input) => { datesDiv = input; }} >
+                <div
+                  id="dates-container"
+                  className="dates-container"
+                  ref={(input) => { datesDiv = input; }}
+                >
                   <div className="checkin-container">
                     <input
                       type="text"
@@ -33,7 +41,6 @@ const Popup = (props) => {
                       placeholder="Check In"
                       autoComplete="off"
                       ref={(input) => { checkInDiv = input; }}
-                      // onClick={props.handleCheckInClick}
                     />
                     <div className={`check-in-text ${props.checkInActive ? 'active' : ''}`}>{props.checkInDate ? `${monthName.short[props.checkInDate.month - 1]} ${props.checkInDate.day}` : 'Check In'}</div>
                   </div> {
@@ -49,7 +56,6 @@ const Popup = (props) => {
                       placeholder="Check Out"
                       autoComplete="off"
                       ref={(input) => { checkOutDiv = input; }}
-                      // onClick={props.handleCheckOutClick}
                     />
                     <div className={`check-out-text ${props.checkOutActive ? 'active' : ''}`}>{props.checkOutDate ? `${monthName.short[props.checkOutDate.month - 1]} ${props.checkOutDate.day}` : 'Check Out'}</div>
                   </div>
@@ -77,7 +83,11 @@ const Popup = (props) => {
                 <label htmlFor="guests-button" className="guest-label">
                   <span>Guests</span>
                 </label>
-                <button id="guests-button" className="guests-button">
+                <button
+                  id="guests-button"
+                  className="guests-button"
+                  ref={(input) => { guestsDiv = input; }}
+                >
                   <div className="guests-container">
                     <span className="guest-text">
                       <span>1 guest</span>
@@ -117,8 +127,6 @@ Popup.propTypes = {
   checkInDate: dateShape,
   checkOutDate: dateShape,
   handleDateClick: PropTypes.func.isRequired,
-  // handleCheckInClick: PropTypes.func.isRequired,
-  // handleCheckOutClick: PropTypes.func.isRequired,
   popupClick: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
   lastPossibleCheckInDate: dateShape,
