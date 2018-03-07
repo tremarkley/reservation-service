@@ -34,7 +34,7 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <Popup
     checkInActive={false}
     checkOutActive={false}
-    closeCalendar={[Function]}
+    closeCalendarClick={[Function]}
     handleCheckInClick={[Function]}
     handleCheckOutClick={[Function]}
     handleClearDates={[Function]}
@@ -665,7 +665,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <Popup
       checkInActive={true}
       checkOutActive={false}
-      closeCalendar={[Function]}
+      closeCalendarClick={[Function]}
       handleCheckInClick={[Function]}
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
@@ -963,7 +963,7 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <Popup
       checkInActive={false}
       checkOutActive={false}
-      closeCalendar={[Function]}
+      closeCalendarClick={[Function]}
       handleCheckInClick={[Function]}
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}

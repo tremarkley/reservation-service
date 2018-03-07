@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 /*  eslint-disable no-unused-vars  */
 import css from '../styles/styles.css';
@@ -18,6 +19,7 @@ class App extends React.Component {
       checkOutDate: undefined,
       lastPossibleCheckInDate: undefined,
       lastPossibleCheckOutDate: undefined,
+      showGuestDialog: false,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -25,7 +27,7 @@ class App extends React.Component {
     this.handleCheckInClick = this.handleCheckInClick.bind(this);
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
     this.openCalendar = this.openCalendar.bind(this);
-    this.closeCalendar = this.closeCalendar.bind(this);
+    this.closeCalendarClick = this.closeCalendarClick.bind(this);
     this.handleClearDates = this.handleClearDates.bind(this);
     this.findLastPossibleCheckOutDate = this.findLastPossibleCheckOutDate.bind(this);
   }
@@ -77,7 +79,7 @@ class App extends React.Component {
     });
   }
 
-  closeCalendar(event, datesDiv) {
+  closeCalendarClick(event, datesDiv) {
     if (!datesDiv.contains(event.target) && this.state.showCalendar) {
       this.setState({
         showCalendar: false, checkOutActive: false, checkInActive: false,
@@ -189,6 +191,22 @@ class App extends React.Component {
     }
   }
 
+  openGuestDialog() {
+    this.setState({
+      showGuestDialog: true,
+    });
+  }
+
+  handleGuestsClick() {
+
+  }
+
+  closeGuestsDialog() {
+    this.setState({
+      showGuestDialog: false,
+    });
+  }
+
   render() {
     return (
       <div className="reservations-footer">
@@ -210,7 +228,7 @@ class App extends React.Component {
               handleDateClick={this.handleDateClick}
               handleCheckInClick={this.handleCheckInClick}
               handleCheckOutClick={this.handleCheckOutClick}
-              closeCalendar={this.closeCalendar}
+              closeCalendarClick={this.closeCalendarClick}
               handleClearDates={this.handleClearDates}
               lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
               lastPossibleCheckOutDate={this.state.lastPossibleCheckOutDate}
