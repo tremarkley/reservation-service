@@ -239,6 +239,7 @@ class App extends React.Component {
               handleClearDates={this.handleClearDates}
               lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
               lastPossibleCheckOutDate={this.state.lastPossibleCheckOutDate}
+              showGuestDialog={this.state.showGuestDialog}
             /> : null
         }
       </div>

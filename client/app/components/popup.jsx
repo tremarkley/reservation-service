@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dateShape from '../../data/propShapes';
 import Calendar from './calendar';
 import monthName from '../../data/months';
+import Guests from './guests';
 
 const url = process.env.reservations_url || 'http://localhost:3002';
 
@@ -92,6 +93,10 @@ const Popup = (props) => {
                     <span className="guest-text">
                       <span>1 guest</span>
                     </span>
+                    {
+                      props.showGuestDialog ?
+                        <Guests /> : null
+                    }
                   </div>
                 </button>
               </div>
@@ -131,6 +136,7 @@ Popup.propTypes = {
   handleClearDates: PropTypes.func.isRequired,
   lastPossibleCheckInDate: dateShape,
   lastPossibleCheckOutDate: dateShape,
+  showGuestDialog: PropTypes.bool.isRequired,
 };
 
 Popup.defaultProps = {
