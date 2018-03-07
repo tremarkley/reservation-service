@@ -26,7 +26,7 @@ class App extends React.Component {
     this.handleCheckInClick = this.handleCheckInClick.bind(this);
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
     this.openCalendar = this.openCalendar.bind(this);
-    this.closeCalendarClick = this.closeCalendarClick.bind(this);
+    this.popupClick = this.popupClick.bind(this);
     this.handleClearDates = this.handleClearDates.bind(this);
     this.findLastPossibleCheckOutDate = this.findLastPossibleCheckOutDate.bind(this);
   }
@@ -78,11 +78,15 @@ class App extends React.Component {
     });
   }
 
-  closeCalendarClick(event, datesDiv) {
+  closeCalendar() {
+    this.setState({
+      showCalendar: false, checkOutActive: false, checkInActive: false,
+    });
+  }
+
+  popupClick(event, datesDiv) {
     if (!datesDiv.contains(event.target) && this.state.showCalendar) {
-      this.setState({
-        showCalendar: false, checkOutActive: false, checkInActive: false,
-      });
+      this.closeCalendar();
     }
   }
 
@@ -227,7 +231,7 @@ class App extends React.Component {
               handleDateClick={this.handleDateClick}
               handleCheckInClick={this.handleCheckInClick}
               handleCheckOutClick={this.handleCheckOutClick}
-              closeCalendarClick={this.closeCalendarClick}
+              popupClick={this.popupClick}
               handleClearDates={this.handleClearDates}
               lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
               lastPossibleCheckOutDate={this.state.lastPossibleCheckOutDate}

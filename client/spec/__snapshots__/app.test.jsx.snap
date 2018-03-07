@@ -34,13 +34,13 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <Popup
     checkInActive={false}
     checkOutActive={false}
-    closeCalendarClick={[Function]}
     handleCheckInClick={[Function]}
     handleCheckOutClick={[Function]}
     handleClearDates={[Function]}
     handleDateClick={[Function]}
     id={1}
     onClose={[Function]}
+    popupClick={[Function]}
     reservationData={
       Object {
         "0-2018": Array [
@@ -665,13 +665,13 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <Popup
       checkInActive={true}
       checkOutActive={false}
-      closeCalendarClick={[Function]}
       handleCheckInClick={[Function]}
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
       onClose={[Function]}
+      popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={true}
       updateReservationData={[Function]}
@@ -963,13 +963,13 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <Popup
       checkInActive={false}
       checkOutActive={false}
-      closeCalendarClick={[Function]}
       handleCheckInClick={[Function]}
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
       onClose={[Function]}
+      popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={false}
       updateReservationData={[Function]}

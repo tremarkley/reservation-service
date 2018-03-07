@@ -9,7 +9,7 @@ const url = process.env.reservations_url || 'http://localhost:3002';
 const Popup = (props) => {
   let datesDiv = null;
   return (
-    <div className="pop-up" onClick={event => props.closeCalendarClick(event, datesDiv)}>
+    <div className="pop-up" onClick={event => props.popupClick(event, datesDiv)}>
       <div className="pop-up-content">
         <div className="inner-content">
           <div className="inner-inner-content">
@@ -115,7 +115,7 @@ Popup.propTypes = {
   handleDateClick: PropTypes.func.isRequired,
   handleCheckInClick: PropTypes.func.isRequired,
   handleCheckOutClick: PropTypes.func.isRequired,
-  closeCalendarClick: PropTypes.func.isRequired,
+  popupClick: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
   lastPossibleCheckInDate: dateShape,
   lastPossibleCheckOutDate: dateShape,
