@@ -695,6 +695,11 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                 <button
                   className="close-button"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundImage": "url(http://localhost:3002/images/x-icon.png)",
+                    }
+                  }
                 />
               </div>
               <div
@@ -780,6 +785,11 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                             <button
                               className="left-arrow"
                               onClick={[Function]}
+                              style={
+                                Object {
+                                  "backgroundImage": "url(http://localhost:3002/images/left-arrow.png)",
+                                }
+                              }
                             />
                             <h4
                               className="calendar-header"
@@ -789,6 +799,11 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                             <button
                               className="right-arrow"
                               onClick={[Function]}
+                              style={
+                                Object {
+                                  "backgroundImage": "url(http://localhost:3002/images/right-arrow.png)",
+                                }
+                              }
                             />
                             <div
                               className="days-of-week-div"
@@ -978,6 +993,11 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                 <button
                   className="close-button"
                   onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundImage": "url(http://localhost:3002/images/x-icon.png)",
+                    }
+                  }
                 />
               </div>
               <div

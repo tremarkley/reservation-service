@@ -94,7 +94,6 @@ button:focus {
 }
 
 .close-button {
-  /* background-image: url('../images/x-icon.png'); */
   background-size: 15px 15px;
   height: 15px;
   width: 15px;
@@ -357,7 +356,6 @@ input {
 }
 
 .left-arrow {
-  /* background-image: url('../images/left-arrow.png'); */
   background-repeat: no-repeat;
   background-position: center;
   line-height: 0.78;
@@ -376,7 +374,6 @@ input {
 }
 
 .right-arrow {
-  background-image: url('../images/right-arrow.png');
   background-repeat: no-repeat;
   background-position: center;
   line-height: 0.78;
