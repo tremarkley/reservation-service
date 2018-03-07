@@ -39,6 +39,7 @@ exports[`<App /> component Clicking book button should render popup component 2`
     handleCheckOutClick={[Function]}
     handleClearDates={[Function]}
     handleDateClick={[Function]}
+    id={1}
     onClose={[Function]}
     reservationData={
       Object {
@@ -645,7 +646,9 @@ exports[`<App /> component Clicking book button should render popup component 2`
 `;
 
 exports[`<App /> component Clicking checkin button should render calendar component 1`] = `
-<App>
+<App
+  id={1}
+>
   <div
     className="reservations-footer"
   >
@@ -667,6 +670,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
+      id={1}
       onClose={[Function]}
       reservationData={Object {}}
       showCalendar={true}
@@ -759,6 +763,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                         }
                       }
                       handleClearDates={[Function]}
+                      id={1}
                       onClick={[Function]}
                       reservationData={Object {}}
                       updateReservationData={[Function]}
@@ -924,7 +929,9 @@ exports[`<App /> component Clicking checkin button should render calendar compon
 `;
 
 exports[`<App /> component Clicking outside of checkin/checkout button should close calendar component 1`] = `
-<App>
+<App
+  id={1}
+>
   <div
     className="reservations-footer"
   >
@@ -946,6 +953,7 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
       handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
+      id={1}
       onClose={[Function]}
       reservationData={Object {}}
       showCalendar={false}

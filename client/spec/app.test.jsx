@@ -12,7 +12,7 @@ describe('<App /> component', () => {
   let wrapper;
   let instance;
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<App id={1} />);
     instance = wrapper.instance();
     instance.updateReservationData(reservationData['0-2018'], 0, 2018);
     instance.updateReservationData(reservationData['1-2018'], 1, 2018);
@@ -25,14 +25,14 @@ describe('<App /> component', () => {
   });
   //  these tests must be here because the functions for opening the calendar are at the app level
   it('Clicking checkin button should render calendar component', () => {
-    wrapper = mount(<App />);
+    wrapper = mount(<App id={1} />);
     wrapper.find('button').simulate('click');
     wrapper.find('#checkin').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
 
   it('Clicking outside of checkin/checkout button should close calendar component', () => {
-    wrapper = mount(<App />);
+    wrapper = mount(<App id={1} />);
     wrapper.find('button').simulate('click');
     wrapper.find('.pop-up').simulate('click');
     expect(wrapper).toMatchSnapshot();

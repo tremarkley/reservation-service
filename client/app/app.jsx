@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 /*  eslint-disable no-unused-vars  */
 import css from '../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
 import Popup from './components/popup';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showPopup: false,
       reservationData: {},
@@ -197,6 +198,7 @@ class App extends React.Component {
         {
           this.state.showPopup ?
             <Popup
+              id={this.props.id}
               onClose={this.togglePopup}
               reservationData={this.state.reservationData}
               showCalendar={this.state.showCalendar}
@@ -219,4 +221,9 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
 export default App;
+Window.Reservations = App;

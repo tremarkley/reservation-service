@@ -4,6 +4,8 @@ import dateShape from '../../data/propShapes';
 import Calendar from './calendar';
 import monthName from '../../data/months';
 
+const url = process.env.reservations_url || 'http://localhost:3002';
+
 const Popup = (props) => {
   let datesDiv = null;
   return (
@@ -12,7 +14,7 @@ const Popup = (props) => {
         <div className="inner-content">
           <div className="inner-inner-content">
             <div className="close-dialog-container">
-              <button className="close-button" onClick={props.onClose} />
+              <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
             </div>
             <div className="reservations-dialog-container">
               <div className="dates">
@@ -50,6 +52,7 @@ const Popup = (props) => {
                   {
                     props.showCalendar ?
                       <Calendar
+                        id={props.id}
                         dates={
                         {
                           checkInDate: props.checkInDate,
@@ -96,6 +99,7 @@ const Popup = (props) => {
 };
 
 Popup.propTypes = {
+  id: PropTypes.number.isRequired,
   onClose: PropTypes.func.isRequired,
   reservationData: PropTypes.shape({
     monthYear: PropTypes.arrayOf({

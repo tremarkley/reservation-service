@@ -7,6 +7,7 @@ import monthName from '../../data/months';
 /*  eslint-disable no-unused-vars  */
 import css from '../../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
+const url = process.env.reservations_url || 'http://localhost:3002';
 
 const { CalendarGrid } = obj;
 
@@ -45,7 +46,7 @@ class Calendar extends React.Component {
 
   getReservationData() {
     if (this.props.reservationData[`${this.state.month}-${this.state.year}`] === undefined) {
-      axios.get('/1', { params: { month: this.state.month + 1, year: this.state.year } })
+      axios.get(`${url}/${this.props.id}`, { params: { month: this.state.month + 1, year: this.state.year } })
         .then((response) => {
           this.props.updateReservationData(response.data, this.state.month, this.state.year);
         });
@@ -75,9 +76,9 @@ class Calendar extends React.Component {
       <div className="outer-calendar-pop-up">
         <div className="inner-calendar-pop-up">
           <div className="calendar-holder">
-            <button className="left-arrow" onClick={this.leftArrowClick} />
+            <button className="left-arrow" style={{ backgroundImage: `url(${process.env.reservations_url}/images/left-arrow.png)` }} onClick={this.leftArrowClick} />
             <h4 className="calendar-header">{`${monthName.long[this.state.month]} ${this.state.year}`}</h4>
-            <button className="right-arrow" onClick={this.rightArrowClick} />
+            <button className="right-arrow" style={{ backgroundImage: `url(${process.env.reservations_url}/images/right-arrow.png)` }} onClick={this.rightArrowClick} />
             <div className="days-of-week-div">
               <ul className="days">
                 <li className="day"><small>Su</small></li>
@@ -120,6 +121,7 @@ class Calendar extends React.Component {
 }
 
 Calendar.propTypes = {
+  id: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
   dates: PropTypes.shape({
     checkInDate: dateShape,
