@@ -8,8 +8,10 @@ const url = process.env.reservations_url || 'http://localhost:3002';
 
 const Popup = (props) => {
   let datesDiv = null;
+  let checkInDiv = null;
+  let checkOutDiv = null;
   return (
-    <div className="pop-up" onClick={event => props.popupClick(event, datesDiv)}>
+    <div className="pop-up" onClick={event => props.popupClick(event, datesDiv, checkInDiv, checkOutDiv)}>
       <div className="pop-up-content">
         <div className="inner-content">
           <div className="inner-inner-content">
@@ -30,7 +32,8 @@ const Popup = (props) => {
                       value=""
                       placeholder="Check In"
                       autoComplete="off"
-                      onClick={props.handleCheckInClick}
+                      ref={(input) => { checkInDiv = input; }}
+                      // onClick={props.handleCheckInClick}
                     />
                     <div className={`check-in-text ${props.checkInActive ? 'active' : ''}`}>{props.checkInDate ? `${monthName.short[props.checkInDate.month - 1]} ${props.checkInDate.day}` : 'Check In'}</div>
                   </div> {
@@ -45,7 +48,8 @@ const Popup = (props) => {
                       value=""
                       placeholder="Check Out"
                       autoComplete="off"
-                      onClick={props.handleCheckOutClick}
+                      ref={(input) => { checkOutDiv = input; }}
+                      // onClick={props.handleCheckOutClick}
                     />
                     <div className={`check-out-text ${props.checkOutActive ? 'active' : ''}`}>{props.checkOutDate ? `${monthName.short[props.checkOutDate.month - 1]} ${props.checkOutDate.day}` : 'Check Out'}</div>
                   </div>
@@ -113,8 +117,8 @@ Popup.propTypes = {
   checkInDate: dateShape,
   checkOutDate: dateShape,
   handleDateClick: PropTypes.func.isRequired,
-  handleCheckInClick: PropTypes.func.isRequired,
-  handleCheckOutClick: PropTypes.func.isRequired,
+  // handleCheckInClick: PropTypes.func.isRequired,
+  // handleCheckOutClick: PropTypes.func.isRequired,
   popupClick: PropTypes.func.isRequired,
   handleClearDates: PropTypes.func.isRequired,
   lastPossibleCheckInDate: dateShape,

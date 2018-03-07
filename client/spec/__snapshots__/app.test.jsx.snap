@@ -34,8 +34,6 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <Popup
     checkInActive={false}
     checkOutActive={false}
-    handleCheckInClick={[Function]}
-    handleCheckOutClick={[Function]}
     handleClearDates={[Function]}
     handleDateClick={[Function]}
     id={1}
@@ -665,8 +663,6 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <Popup
       checkInActive={true}
       checkOutActive={false}
-      handleCheckInClick={[Function]}
-      handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
@@ -727,7 +723,6 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                         autoComplete="off"
                         id="checkin"
                         name="checkin"
-                        onClick={[Function]}
                         placeholder="Check In"
                         type="text"
                         value=""
@@ -746,7 +741,6 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                         autoComplete="off"
                         id="checkout"
                         name="checkout"
-                        onClick={[Function]}
                         placeholder="Check Out"
                         type="text"
                         value=""
@@ -963,8 +957,6 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <Popup
       checkInActive={false}
       checkOutActive={false}
-      handleCheckInClick={[Function]}
-      handleCheckOutClick={[Function]}
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
@@ -1025,7 +1017,6 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                         autoComplete="off"
                         id="checkin"
                         name="checkin"
-                        onClick={[Function]}
                         placeholder="Check In"
                         type="text"
                         value=""
@@ -1049,7 +1040,6 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                         autoComplete="off"
                         id="checkout"
                         name="checkout"
-                        onClick={[Function]}
                         placeholder="Check Out"
                         type="text"
                         value=""

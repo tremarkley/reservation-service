@@ -23,8 +23,6 @@ class App extends React.Component {
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
     this.handleDateClick = this.handleDateClick.bind(this);
-    this.handleCheckInClick = this.handleCheckInClick.bind(this);
-    this.handleCheckOutClick = this.handleCheckOutClick.bind(this);
     this.openCalendar = this.openCalendar.bind(this);
     this.popupClick = this.popupClick.bind(this);
     this.handleClearDates = this.handleClearDates.bind(this);
@@ -84,9 +82,15 @@ class App extends React.Component {
     });
   }
 
-  popupClick(event, datesDiv) {
+  popupClick(event, datesDiv, checkInDiv, checkOutDiv) {
     if (!datesDiv.contains(event.target) && this.state.showCalendar) {
       this.closeCalendar();
+    }
+    if (checkInDiv.contains(event.target)) {
+      this.handleCheckInClick();
+    }
+    if (checkOutDiv.contains(event.target)) {
+      this.handleCheckOutClick();
     }
   }
 
@@ -200,10 +204,6 @@ class App extends React.Component {
     });
   }
 
-  handleGuestsClick() {
-
-  }
-
   closeGuestsDialog() {
     this.setState({
       showGuestDialog: false,
@@ -229,8 +229,6 @@ class App extends React.Component {
               checkInDate={this.state.checkInDate}
               checkOutDate={this.state.checkOutDate}
               handleDateClick={this.handleDateClick}
-              handleCheckInClick={this.handleCheckInClick}
-              handleCheckOutClick={this.handleCheckOutClick}
               popupClick={this.popupClick}
               handleClearDates={this.handleClearDates}
               lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
