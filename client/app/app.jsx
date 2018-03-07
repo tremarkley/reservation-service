@@ -226,4 +226,4 @@ App.propTypes = {
 };
 
 export default App;
-Window.Reservations = App;
+window.Reservations = App;
