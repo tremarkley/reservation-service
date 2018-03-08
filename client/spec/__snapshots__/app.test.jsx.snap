@@ -34,9 +34,20 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <Popup
     checkInActive={false}
     checkOutActive={false}
+    closeGuestsDialog={[Function]}
+    decrementGuests={[Function]}
+    guests={
+      Object {
+        "adults": 1,
+        "children": 0,
+        "infants": 0,
+      }
+    }
     handleClearDates={[Function]}
     handleDateClick={[Function]}
     id={1}
+    incrementGuests={[Function]}
+    maxGuests={1}
     onClose={[Function]}
     popupClick={[Function]}
     reservationData={
@@ -638,6 +649,8 @@ exports[`<App /> component Clicking book button should render popup component 2`
       }
     }
     showCalendar={false}
+    showGuestDialog={false}
+    toggleGuestDialog={[Function]}
     updateReservationData={[Function]}
   />
 </div>
@@ -663,13 +676,26 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <Popup
       checkInActive={true}
       checkOutActive={false}
+      closeGuestsDialog={[Function]}
+      decrementGuests={[Function]}
+      guests={
+        Object {
+          "adults": 1,
+          "children": 0,
+          "infants": 0,
+        }
+      }
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
+      incrementGuests={[Function]}
+      maxGuests={1}
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={true}
+      showGuestDialog={false}
+      toggleGuestDialog={[Function]}
       updateReservationData={[Function]}
     >
       <div
@@ -894,12 +920,13 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                   <button
                     className="guests-button"
                     id="guests-button"
+                    onClick={[Function]}
                   >
                     <div
                       className="guests-container"
                     >
                       <span
-                        className="guest-text"
+                        className="guest-text "
                       >
                         <span>
                           1 guest
@@ -957,13 +984,26 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <Popup
       checkInActive={false}
       checkOutActive={false}
+      closeGuestsDialog={[Function]}
+      decrementGuests={[Function]}
+      guests={
+        Object {
+          "adults": 1,
+          "children": 0,
+          "infants": 0,
+        }
+      }
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
+      incrementGuests={[Function]}
+      maxGuests={1}
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={false}
+      showGuestDialog={false}
+      toggleGuestDialog={[Function]}
       updateReservationData={[Function]}
     >
       <div
@@ -1066,12 +1106,13 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                   <button
                     className="guests-button"
                     id="guests-button"
+                    onClick={[Function]}
                   >
                     <div
                       className="guests-container"
                     >
                       <span
-                        className="guest-text"
+                        className="guest-text "
                       >
                         <span>
                           1 guest

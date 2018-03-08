@@ -29,7 +29,7 @@ class Guests extends React.Component {
               <div className="guests-controller-container">
                 <div className="guests-controller-content">
                   <div className="minus-button-container">
-                    <button className="guests-counter-button" disabled={this.props.guests.adults === 1} onClick={this.props.guests.adults > 1 ? () => { this.props.decrementGuests('adults'); } : null}>
+                    <button id="minus-adults" className="guests-counter-button" disabled={this.props.guests.adults === 1} onClick={this.props.guests.adults > 1 ? () => { this.props.decrementGuests('adults'); } : null}>
                       <span className={`${this.props.guests.adults === 1 ? 'guests-counter-span-disabled' : 'guests-counter-span-active'}`}>
                         <svg
                           viewBox="0 0 24 24"
@@ -47,7 +47,7 @@ class Guests extends React.Component {
                     <div className="guest-count-div">{this.props.guests.adults}</div>
                   </div>
                   <div className="plus-button-container">
-                    <button className="guests-counter-button" disabled={this.maxGuestReached()} onClick={!this.maxGuestReached() ? () => { this.props.incrementGuests('adults'); } : null}>
+                    <button id="plus-adults" className="guests-counter-button" disabled={this.maxGuestReached()} onClick={!this.maxGuestReached() ? () => { this.props.incrementGuests('adults'); } : null}>
                       <span className={`${!this.maxGuestReached() ? 'guests-counter-span-active' : 'guests-counter-span-disabled'}`}>
                         <svg
                           viewBox="0 0 24 24"
@@ -81,7 +81,7 @@ class Guests extends React.Component {
               <div className="guests-controller-container">
                 <div className="guests-controller-content">
                   <div className="minus-button-container">
-                    <button className="guests-counter-button" disabled={this.props.guests.children === 0} onClick={this.props.guests.children > 0 ? () => { this.props.decrementGuests('children'); } : null}>
+                    <button id="minus-children" className="guests-counter-button" disabled={this.props.guests.children === 0} onClick={this.props.guests.children > 0 ? () => { this.props.decrementGuests('children'); } : null}>
                       <span className={`${this.props.guests.children === 0 ? 'guests-counter-span-disabled' : 'guests-counter-span-active'}`}>
                         <svg
                           viewBox="0 0 24 24"
@@ -99,7 +99,7 @@ class Guests extends React.Component {
                     <div className="guest-count-div">{this.props.guests.children}</div>
                   </div>
                   <div className="plus-button-container">
-                    <button className="guests-counter-button" disabled={this.maxGuestReached()} onClick={!this.maxGuestReached() ? () => { this.props.incrementGuests('children'); } : null}>
+                    <button id="plus-children" className="guests-counter-button" disabled={this.maxGuestReached()} onClick={!this.maxGuestReached() ? () => { this.props.incrementGuests('children'); } : null}>
                       <span className={`${!this.maxGuestReached() ? 'guests-counter-span-active' : 'guests-counter-span-disabled'}`}>
                         <svg
                           viewBox="0 0 24 24"
@@ -133,7 +133,7 @@ class Guests extends React.Component {
               <div className="guests-controller-container">
                 <div className="guests-controller-content">
                   <div className="minus-button-container">
-                    <button className="guests-counter-button" disabled={this.props.guests.infants === 0} onClick={this.props.guests.infants > 0 ? () => { this.props.decrementGuests('infants'); } : null}>
+                    <button id="minus-infants" className="guests-counter-button" disabled={this.props.guests.infants === 0} onClick={this.props.guests.infants > 0 ? () => { this.props.decrementGuests('infants'); } : null}>
                       <span className={`${this.props.guests.infants === 0 ? 'guests-counter-span-disabled' : 'guests-counter-span-active'}`}>
                         <svg
                           viewBox="0 0 24 24"
@@ -151,7 +151,7 @@ class Guests extends React.Component {
                     <div className="guest-count-div">{this.props.guests.infants}</div>
                   </div>
                   <div className="plus-button-container">
-                    <button className="guests-counter-button" disabled={!(this.props.guests.infants < 5)} onClick={this.props.guests.infants < 5 ? () => { this.props.incrementGuests('infants'); } : null}>
+                    <button id="plus-infants" className="guests-counter-button" disabled={!(this.props.guests.infants < 5)} onClick={this.props.guests.infants < 5 ? () => { this.props.incrementGuests('infants'); } : null}>
                       <span className={`${this.props.guests.infants < 5 ? 'guests-counter-span-active' : 'guests-counter-span-disabled'}`}>
                         <svg
                           viewBox="0 0 24 24"
