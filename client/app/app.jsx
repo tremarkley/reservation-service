@@ -50,7 +50,7 @@ class App extends React.Component {
     axios.get(`${url}/${this.props.id}`, { params: { month: month + 1, year } })
       .then((response) => {
         const maxGuests = response.data[0].maximum_guests;
-        const nightlyPrice = response.data[0].price;
+        const nightlyPrice = +response.data[0].price;
         this.setState({ maxGuests, nightlyPrice });
         this.updateReservationData(response.data, month, year);
       });
@@ -290,6 +290,7 @@ class App extends React.Component {
               maxGuests={this.state.maxGuests}
               toggleGuestDialog={this.toggleGuestDialog}
               closeGuestsDialog={this.closeGuestsDialog}
+              nightlyPrice={this.state.nightlyPrice}
             /> : null
         }
       </div>

@@ -25,8 +25,8 @@ const Popup = (props) => {
               <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
             </div>
             <div className="price-summary-div">
-              <span className="price-summary-span">$1,500</span>
-              <span className="per-night-summary-span"> per night</span>
+              <span className="price-summary-span">{`${props.nightlyPrice !== undefined ? `$${props.nightlyPrice.toLocaleString()}` : ''}`}</span>
+              <span className="per-night-summary-span">{`${props.nightlyPrice !== undefined ? ' per night' : ''}`}</span>
             </div>
             <div className="price-summary-border" />
             <div className="reservations-dialog-container">
@@ -115,7 +115,7 @@ const Popup = (props) => {
             </div>
             {
               props.checkInDate && props.checkOutDate ?
-                <Pricing /> : null
+                <Pricing nightlyPrice={props.nightlyPrice} /> : null
             }
             <div className="booking-button-container">
               <button className="book-now-button">
@@ -163,6 +163,7 @@ Popup.propTypes = {
   maxGuests: PropTypes.number.isRequired,
   toggleGuestDialog: PropTypes.func.isRequired,
   closeGuestsDialog: PropTypes.func.isRequired,
+  nightlyPrice: PropTypes.number,
 };
 
 Popup.defaultProps = {
@@ -170,6 +171,7 @@ Popup.defaultProps = {
   checkOutDate: undefined,
   lastPossibleCheckInDate: undefined,
   lastPossibleCheckOutDate: undefined,
+  nightlyPrice: undefined,
 };
 
 export default Popup;
