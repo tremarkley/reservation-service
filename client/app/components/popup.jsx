@@ -115,7 +115,7 @@ const Popup = (props) => {
             </div>
             {
               props.checkInDate && props.checkOutDate ?
-                <Pricing nightlyPrice={props.nightlyPrice} /> : null
+                <Pricing nightlyPrice={props.nightlyPrice} checkInDate={props.checkInDate} checkOutDate={props.checkOutDate} /> : null
             }
             <div className="booking-button-container">
               <button className="book-now-button">
