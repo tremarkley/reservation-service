@@ -510,8 +510,7 @@ input {
   position: absolute !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.07) !important;
   border-radius: 3px !important;
-  width: 100% !important;
-  min-width: 280px !important;
+  width: 280px !important;
   text-align: left !important;
   padding: 0 16px !important;
   margin-bottom: 16px !important;
