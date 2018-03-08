@@ -28,6 +28,7 @@ class App extends React.Component {
         infants: 0,
       },
       maxGuests: 1,
+      nightlyPrice: undefined,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -49,7 +50,8 @@ class App extends React.Component {
     axios.get(`${url}/${this.props.id}`, { params: { month: month + 1, year } })
       .then((response) => {
         const maxGuests = response.data[0].maximum_guests;
-        this.setState({ maxGuests });
+        const nightlyPrice = response.data[0].price;
+        this.setState({ maxGuests, nightlyPrice });
         this.updateReservationData(response.data, month, year);
       });
   }
@@ -258,6 +260,10 @@ class App extends React.Component {
     return (
       <div className="reservations-footer">
         <div className="content">
+          <div className="price-footer-div">
+            <span className="price-footer-span">{`${this.state.nightlyPrice !== undefined ? `$${this.state.nightlyPrice.toLocaleString()}` : ''}`}</span>
+            <span className="per-night-footer-span">{`${this.state.nightlyPrice !== undefined ? ' per night' : ''}`}</span>
+          </div>
           <button className="bookButton" onClick={this.togglePopup}>Book</button>
         </div>
         {
