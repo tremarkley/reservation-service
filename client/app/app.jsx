@@ -29,6 +29,7 @@ class App extends React.Component {
       },
       maxGuests: 1,
       nightlyPrice: undefined,
+      minimumNights: 1,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -51,7 +52,8 @@ class App extends React.Component {
       .then((response) => {
         const maxGuests = response.data[0].maximum_guests;
         const nightlyPrice = +response.data[0].price;
-        this.setState({ maxGuests, nightlyPrice });
+        const minimumNights = +response.data[0].minimum_stay;
+        this.setState({ maxGuests, nightlyPrice, minimumNights });
         this.updateReservationData(response.data, month, year);
       });
   }
@@ -291,6 +293,7 @@ class App extends React.Component {
               toggleGuestDialog={this.toggleGuestDialog}
               closeGuestsDialog={this.closeGuestsDialog}
               nightlyPrice={this.state.nightlyPrice}
+              minimumNights={this.state.minimumNights}
             /> : null
         }
       </div>

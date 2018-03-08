@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dateShape from '../../data/propShapes';
-
-const totalNights = function totalNights(checkIn, checkOut) {
-  const MS_PER_DAY = 1000 * 60 * 60 * 24;
-  const checkInDate = new Date(`${checkIn.month}-${checkIn.day}-${checkIn.year}`);
-  const checkOutDate = new Date(`${checkOut.month}-${checkOut.day}-${checkOut.year}`);
-  const diffDays = (checkOutDate - checkInDate) / MS_PER_DAY;
-  return diffDays;
-};
+import utils from '../utils';
 
 const CLEANING_FEE = 75;
 const SERVICE_FEE = 5;
+const { totalNights } = utils;
 
 
 const Pricing = props => (

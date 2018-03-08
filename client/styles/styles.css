@@ -891,3 +891,23 @@ input {
   color: #484848 !important;
   display: inline !important;
 }
+
+.minimum-stay-warning-div {
+  margin-top: 24px;
+  text-align: center !important;
+  width: 100% !important;
+  font-weight: normal !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+}
+
+.minimum-stay-warning-span {
+  color: #d43242 !important;
+}
