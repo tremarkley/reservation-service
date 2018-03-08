@@ -514,6 +514,7 @@ input {
   text-align: left !important;
   padding: 0 16px !important;
   margin-bottom: 16px !important;
+  margin-right: 24px;
   -moz-box-sizing: border-box !important;
   box-sizing: border-box !important;
   z-index: 2 !important;
