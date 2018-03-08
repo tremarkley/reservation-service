@@ -327,4 +327,64 @@ describe('<App /> component', () => {
     });
     expect(instance.state.showCalendar).toBe(false);
   });
+
+  it('Should set showGuestDialog to true, when guest div is clicked first time', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+  });
+
+  it('Should set showGuestDialog to false, when guest div is clicked when it is already open', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+  });
+
+  it('Should set showGuestDialog to false, when dialog is open and click outside of dialog', () => {
+    wrapper = mount(<App id={1} />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+    wrapper.find('#guests-button').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(true);
+    wrapper.find('#checkout').simulate('click');
+    expect(wrapper.state('showGuestDialog')).toBe(false);
+  });
+
+  it('Should increment guests properly based on type', () => {
+    expect(instance.state.guests.adults).toBe(1);
+    expect(instance.incrementGuests('adults'));
+    expect(instance.state.guests.adults).toBe(2);
+    expect(instance.state.guests.children).toBe(0);
+    expect(instance.state.guests.infants).toBe(0);
+    expect(instance.incrementGuests('children'));
+    expect(instance.state.guests.adults).toBe(2);
+    expect(instance.state.guests.children).toBe(1);
+    expect(instance.state.guests.infants).toBe(0);
+    expect(instance.incrementGuests('infants'));
+    expect(instance.state.guests.adults).toBe(2);
+    expect(instance.state.guests.children).toBe(1);
+    expect(instance.state.guests.infants).toBe(1);
+  });
+
+  it('Should decrement guests properly based on type', () => {
+    expect(instance.state.guests.adults).toBe(1);
+    expect(instance.decrementGuests('adults'));
+    expect(instance.state.guests.adults).toBe(0);
+    expect(instance.state.guests.children).toBe(0);
+    expect(instance.state.guests.infants).toBe(0);
+    expect(instance.decrementGuests('children'));
+    expect(instance.state.guests.adults).toBe(0);
+    expect(instance.state.guests.children).toBe(-1);
+    expect(instance.state.guests.infants).toBe(0);
+    expect(instance.decrementGuests('infants'));
+    expect(instance.state.guests.adults).toBe(0);
+    expect(instance.state.guests.children).toBe(-1);
+    expect(instance.state.guests.infants).toBe(-1);
+  });
 });

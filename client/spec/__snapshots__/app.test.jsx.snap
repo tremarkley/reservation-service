@@ -34,13 +34,22 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <Popup
     checkInActive={false}
     checkOutActive={false}
-    closeCalendar={[Function]}
-    handleCheckInClick={[Function]}
-    handleCheckOutClick={[Function]}
+    closeGuestsDialog={[Function]}
+    decrementGuests={[Function]}
+    guests={
+      Object {
+        "adults": 1,
+        "children": 0,
+        "infants": 0,
+      }
+    }
     handleClearDates={[Function]}
     handleDateClick={[Function]}
     id={1}
+    incrementGuests={[Function]}
+    maxGuests={1}
     onClose={[Function]}
+    popupClick={[Function]}
     reservationData={
       Object {
         "0-2018": Array [
@@ -640,6 +649,8 @@ exports[`<App /> component Clicking book button should render popup component 2`
       }
     }
     showCalendar={false}
+    showGuestDialog={false}
+    toggleGuestDialog={[Function]}
     updateReservationData={[Function]}
   />
 </div>
@@ -665,15 +676,26 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <Popup
       checkInActive={true}
       checkOutActive={false}
-      closeCalendar={[Function]}
-      handleCheckInClick={[Function]}
-      handleCheckOutClick={[Function]}
+      closeGuestsDialog={[Function]}
+      decrementGuests={[Function]}
+      guests={
+        Object {
+          "adults": 1,
+          "children": 0,
+          "infants": 0,
+        }
+      }
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
+      incrementGuests={[Function]}
+      maxGuests={1}
       onClose={[Function]}
+      popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={true}
+      showGuestDialog={false}
+      toggleGuestDialog={[Function]}
       updateReservationData={[Function]}
     >
       <div
@@ -727,7 +749,6 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                         autoComplete="off"
                         id="checkin"
                         name="checkin"
-                        onClick={[Function]}
                         placeholder="Check In"
                         type="text"
                         value=""
@@ -746,7 +767,6 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                         autoComplete="off"
                         id="checkout"
                         name="checkout"
-                        onClick={[Function]}
                         placeholder="Check Out"
                         type="text"
                         value=""
@@ -900,12 +920,13 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                   <button
                     className="guests-button"
                     id="guests-button"
+                    onClick={[Function]}
                   >
                     <div
                       className="guests-container"
                     >
                       <span
-                        className="guest-text"
+                        className="guest-text "
                       >
                         <span>
                           1 guest
@@ -963,15 +984,26 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <Popup
       checkInActive={false}
       checkOutActive={false}
-      closeCalendar={[Function]}
-      handleCheckInClick={[Function]}
-      handleCheckOutClick={[Function]}
+      closeGuestsDialog={[Function]}
+      decrementGuests={[Function]}
+      guests={
+        Object {
+          "adults": 1,
+          "children": 0,
+          "infants": 0,
+        }
+      }
       handleClearDates={[Function]}
       handleDateClick={[Function]}
       id={1}
+      incrementGuests={[Function]}
+      maxGuests={1}
       onClose={[Function]}
+      popupClick={[Function]}
       reservationData={Object {}}
       showCalendar={false}
+      showGuestDialog={false}
+      toggleGuestDialog={[Function]}
       updateReservationData={[Function]}
     >
       <div
@@ -1025,7 +1057,6 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                         autoComplete="off"
                         id="checkin"
                         name="checkin"
-                        onClick={[Function]}
                         placeholder="Check In"
                         type="text"
                         value=""
@@ -1049,7 +1080,6 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                         autoComplete="off"
                         id="checkout"
                         name="checkout"
-                        onClick={[Function]}
                         placeholder="Check Out"
                         type="text"
                         value=""
@@ -1076,12 +1106,13 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                   <button
                     className="guests-button"
                     id="guests-button"
+                    onClick={[Function]}
                   >
                     <div
                       className="guests-container"
                     >
                       <span
-                        className="guest-text"
+                        className="guest-text "
                       >
                         <span>
                           1 guest
