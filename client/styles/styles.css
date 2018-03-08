@@ -91,7 +91,9 @@ button:focus {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
   max-width: 376px;
-  margin: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 200px;
 }
 
 .inner-inner-content {
