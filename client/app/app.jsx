@@ -108,7 +108,6 @@ class App extends React.Component {
   }
 
   popupClick(target, datesDiv, checkInDiv, checkOutDiv, guestsDiv) {
-    console.log('POPUP');
     if (!datesDiv.contains(target) && this.state.showCalendar) {
       this.closeCalendar();
     }

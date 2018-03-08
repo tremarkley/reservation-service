@@ -173,7 +173,7 @@ class Guests extends React.Component {
           <div className="guests-fine-print">
             <div className="guests-fine-print-text-container">
               <div className="guests-fine-print-text">
-                <span>4 guests maximum. Infants don’t count toward the number of guests.</span>
+                <span>{`${this.props.maxGuests} ${this.props.maxGuests > 1 ? 'guests' : 'guest'}` } maximum. Infants don’t count toward the number of guests.</span>
               </div>
             </div>
             <div className="guests-close-button-container">
