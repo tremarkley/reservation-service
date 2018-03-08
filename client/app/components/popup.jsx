@@ -24,6 +24,11 @@ const Popup = (props) => {
             <div className="close-dialog-container">
               <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
             </div>
+            <div className="price-summary-div">
+              <span className="price-summary-span">$1,500</span>
+              <span className="per-night-summary-span"> per night</span>
+            </div>
+            <div className="price-summary-border" />
             <div className="reservations-dialog-container">
               <div className="dates">
                 <label htmlFor="dates-container" className="reservation-label">

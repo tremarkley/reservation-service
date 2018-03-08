@@ -818,3 +818,41 @@ input {
   font-weight: normal !important;
   color: #484848 !important;
 }
+
+.price-summary-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 22px !important;
+  line-height: 28px !important;
+  letter-spacing: -0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  font-weight: 700 !important;
+  display: inline !important;
+}
+
+.per-night-summary-span {
+  font-weight: normal !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  display: inline !important;
+}
+
+.price-summary-border {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+.close-dialog-container {
+  margin-bottom: 24px !important;
+}
