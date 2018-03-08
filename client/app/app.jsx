@@ -38,6 +38,8 @@ class App extends React.Component {
     this.findLastPossibleCheckOutDate = this.findLastPossibleCheckOutDate.bind(this);
     this.incrementGuests = this.incrementGuests.bind(this);
     this.decrementGuests = this.decrementGuests.bind(this);
+    this.toggleGuestDialog = this.toggleGuestDialog.bind(this);
+    this.closeGuestsDialog = this.closeGuestsDialog.bind(this);
   }
 
   componentDidMount() {
@@ -106,6 +108,7 @@ class App extends React.Component {
   }
 
   popupClick(target, datesDiv, checkInDiv, checkOutDiv, guestsDiv) {
+    console.log('POPUP');
     if (!datesDiv.contains(target) && this.state.showCalendar) {
       this.closeCalendar();
     }
@@ -114,9 +117,6 @@ class App extends React.Component {
     }
     if (checkOutDiv.contains(target)) {
       this.handleCheckOutClick();
-    }
-    if (guestsDiv.contains(target)) {
-      this.toggleGuestDialog();
     }
     if (!guestsDiv.contains(target) && this.state.showGuestDialog) {
       this.closeGuestsDialog();
@@ -240,11 +240,19 @@ class App extends React.Component {
   }
 
   incrementGuests(type) {
-
+    this.setState((prevState) => {
+      const nextState = prevState.guests;
+      nextState[type] += 1;
+      return { guests: nextState };
+    });
   }
 
   decrementGuests(type) {
-
+    this.setState((prevState) => {
+      const nextState = prevState.guests;
+      nextState[type] -= 1;
+      return { guests: nextState };
+    });
   }
 
   render() {
@@ -275,6 +283,8 @@ class App extends React.Component {
               incrementGuests={this.incrementGuests}
               decrementGuests={this.decrementGuests}
               maxGuests={this.state.maxGuests}
+              toggleGuestDialog={this.toggleGuestDialog}
+              closeGuestsDialog={this.closeGuestsDialog}
             /> : null
         }
       </div>

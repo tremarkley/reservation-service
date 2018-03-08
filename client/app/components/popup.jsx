@@ -80,24 +80,30 @@ const Popup = (props) => {
                   }
                 </div>
               </div>
-              <div className="guests">
+              <div className="guests" ref={(input) => { guestsDiv = input; }}>
                 <label htmlFor="guests-button" className="guest-label">
                   <span>Guests</span>
                 </label>
                 <button
                   id="guests-button"
                   className="guests-button"
-                  ref={(input) => { guestsDiv = input; }}
+                  onClick={props.toggleGuestDialog}
                 >
                   <div className="guests-container">
                     <span className={`guest-text ${props.showGuestDialog ? 'active' : ''}`}>
-                      <span>1 guest</span>
+                      <span>{`${props.guests.adults + props.guests.children} ${(props.guests.adults + props.guests.children) > 1 ? 'guests' : 'guest'}` }</span>
                     </span>
                   </div>
                 </button>
                 {
                       props.showGuestDialog ?
-                        <Guests guests={props.guests} incrementGuests={props.incrementGuests} decrementGuests={props.decrementGuests} /> : null
+                        <Guests
+                          guests={props.guests}
+                          maxGuests={props.maxGuests}
+                          incrementGuests={props.incrementGuests}
+                          decrementGuests={props.decrementGuests}
+                          closeGuestsDialog={props.closeGuestsDialog}
+                        /> : null
                     }
               </div>
             </div>
@@ -144,6 +150,9 @@ Popup.propTypes = {
   }).isRequired,
   incrementGuests: PropTypes.func.isRequired,
   decrementGuests: PropTypes.func.isRequired,
+  maxGuests: PropTypes.number.isRequired,
+  toggleGuestDialog: PropTypes.func.isRequired,
+  closeGuestsDialog: PropTypes.func.isRequired,
 };
 
 Popup.defaultProps = {
