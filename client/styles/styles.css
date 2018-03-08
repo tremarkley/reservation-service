@@ -91,7 +91,9 @@ button:focus {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
   max-width: 376px;
-  margin: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 200px;
 }
 
 .inner-inner-content {
@@ -766,4 +768,146 @@ input {
   background-color: #008489 !important;
   color: #ffffff !important;
   padding-right: 6px !important;
+}
+
+.pricing-div {
+  margin-bottom: 8px;
+}
+
+.price-section-div {
+  display: table !important;
+  width: 100% !important;
+}
+
+.price-description-div {
+  display: table-cell !important;
+  width: 100% !important;
+  vertical-align: middle !important;
+}
+
+.price-description-span, .total-section-price-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #48484899 !important;
+  font-weight: 300 !important;
+  display: inline !important;
+}
+
+
+
+.total-section-price-div {
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.total-section-price-span {
+  white-space: nowrap !important;
+}
+
+.price-border {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+.price-description-span.total, .total-section-price-span.total {
+  font-weight: normal !important;
+  color: #484848 !important;
+}
+
+.price-summary-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 22px !important;
+  line-height: 28px !important;
+  letter-spacing: -0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  font-weight: 700 !important;
+  display: inline !important;
+}
+
+.per-night-summary-span {
+  font-weight: normal !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  display: inline !important;
+}
+
+.price-summary-border {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+.close-dialog-container {
+  margin-bottom: 24px !important;
+}
+
+.price-footer-div {
+  float: left;
+  margin-top: 17px;
+}
+
+.price-footer-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  font-weight: 700 !important;
+  display: inline !important;
+}
+
+.per-night-footer-span {
+  font-weight: normal !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+  display: inline !important;
+}
+
+.minimum-stay-warning-div {
+  margin-top: 24px;
+  text-align: center !important;
+  width: 100% !important;
+  font-weight: normal !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #484848 !important;
+}
+
+.minimum-stay-warning-span {
+  color: #d43242 !important;
 }

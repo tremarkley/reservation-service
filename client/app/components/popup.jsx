@@ -4,14 +4,22 @@ import dateShape from '../../data/propShapes';
 import Calendar from './calendar';
 import monthName from '../../data/months';
 import Guests from './guests';
+import Pricing from './pricing';
+import utils from '../utils';
 
 const url = process.env.reservations_url || 'http://localhost:3002';
+const { totalNights } = utils;
 
 const Popup = (props) => {
   let datesDiv = null;
   let checkInDiv = null;
   let checkOutDiv = null;
   let guestsDiv = null;
+  let isMinimumStay = false;
+
+  if (props.checkInDate && props.checkOutDate) {
+    isMinimumStay = props.minimumNights <= totalNights(props.checkInDate, props.checkOutDate);
+  }
   return (
     <div
       className="pop-up"
@@ -23,6 +31,11 @@ const Popup = (props) => {
             <div className="close-dialog-container">
               <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
             </div>
+            <div className="price-summary-div">
+              <span className="price-summary-span">{`${props.nightlyPrice !== undefined ? `$${props.nightlyPrice.toLocaleString()}` : ''}`}</span>
+              <span className="per-night-summary-span">{`${props.nightlyPrice !== undefined ? ' per night' : ''}`}</span>
+            </div>
+            <div className="price-summary-border" />
             <div className="reservations-dialog-container">
               <div className="dates">
                 <label htmlFor="dates-container" className="reservation-label">
@@ -107,6 +120,27 @@ const Popup = (props) => {
                     }
               </div>
             </div>
+            {
+              props.checkInDate &&
+              props.checkOutDate &&
+              isMinimumStay ?
+                <Pricing
+                  nightlyPrice={props.nightlyPrice}
+                  checkInDate={props.checkInDate}
+                  checkOutDate={props.checkOutDate}
+                />
+                  : null
+            }
+            {
+              props.checkInDate &&
+              props.checkOutDate &&
+              !isMinimumStay ?
+                <div className="minimum-stay-warning-div">
+                  <span className="minimum-stay-warning-span">
+                  Minimum Stay is {props.minimumNights} nights
+                  </span>
+                </div> : null
+            }
             <div className="booking-button-container">
               <button className="book-now-button">
                 <span className="book-now-span">
@@ -153,6 +187,8 @@ Popup.propTypes = {
   maxGuests: PropTypes.number.isRequired,
   toggleGuestDialog: PropTypes.func.isRequired,
   closeGuestsDialog: PropTypes.func.isRequired,
+  nightlyPrice: PropTypes.number,
+  minimumNights: PropTypes.number.isRequired,
 };
 
 Popup.defaultProps = {
@@ -160,6 +196,7 @@ Popup.defaultProps = {
   checkOutDate: undefined,
   lastPossibleCheckInDate: undefined,
   lastPossibleCheckOutDate: undefined,
+  nightlyPrice: undefined,
 };
 
 export default Popup;
