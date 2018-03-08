@@ -97,7 +97,7 @@ const Popup = (props) => {
                 </button>
                 {
                       props.showGuestDialog ?
-                        <Guests /> : null
+                        <Guests guests={props.guests} incrementGuests={props.incrementGuests} decrementGuests={props.decrementGuests} /> : null
                     }
               </div>
             </div>
@@ -137,6 +137,13 @@ Popup.propTypes = {
   lastPossibleCheckInDate: dateShape,
   lastPossibleCheckOutDate: dateShape,
   showGuestDialog: PropTypes.bool.isRequired,
+  guests: PropTypes.shape({
+    adults: PropTypes.number.isRequired,
+    children: PropTypes.number.isRequired,
+    infants: PropTypes.number.isRequired,
+  }).isRequired,
+  incrementGuests: PropTypes.func.isRequired,
+  decrementGuests: PropTypes.func.isRequired,
 };
 
 Popup.defaultProps = {

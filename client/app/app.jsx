@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 /*  eslint-disable no-unused-vars  */
 import css from '../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
 import Popup from './components/popup';
+
+const url = process.env.reservations_url || 'http://localhost:3002';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +22,12 @@ class App extends React.Component {
       lastPossibleCheckInDate: undefined,
       lastPossibleCheckOutDate: undefined,
       showGuestDialog: false,
+      guests: {
+        adults: 1,
+        children: 0,
+        infants: 0,
+      },
+      maxGuests: 1,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -27,6 +36,20 @@ class App extends React.Component {
     this.popupClick = this.popupClick.bind(this);
     this.handleClearDates = this.handleClearDates.bind(this);
     this.findLastPossibleCheckOutDate = this.findLastPossibleCheckOutDate.bind(this);
+    this.incrementGuests = this.incrementGuests.bind(this);
+    this.decrementGuests = this.decrementGuests.bind(this);
+  }
+
+  componentDidMount() {
+    const currentDate = new Date();
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+    axios.get(`${url}/${this.props.id}`, { params: { month: month + 1, year } })
+      .then((response) => {
+        const maxGuests = response.data[0].maximum_guests;
+        this.setState({ maxGuests });
+        this.updateReservationData(response.data, month, year);
+      });
   }
 
   togglePopup() {
@@ -216,6 +239,14 @@ class App extends React.Component {
     });
   }
 
+  incrementGuests(type) {
+
+  }
+
+  decrementGuests(type) {
+
+  }
+
   render() {
     return (
       <div className="reservations-footer">
@@ -240,6 +271,10 @@ class App extends React.Component {
               lastPossibleCheckInDate={this.state.lastPossibleCheckInDate}
               lastPossibleCheckOutDate={this.state.lastPossibleCheckOutDate}
               showGuestDialog={this.state.showGuestDialog}
+              guests={this.state.guests}
+              incrementGuests={this.incrementGuests}
+              decrementGuests={this.decrementGuests}
+              maxGuests={this.state.maxGuests}
             /> : null
         }
       </div>
