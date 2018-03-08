@@ -90,15 +90,15 @@ const Popup = (props) => {
                   ref={(input) => { guestsDiv = input; }}
                 >
                   <div className="guests-container">
-                    <span className="guest-text">
+                    <span className={`guest-text ${props.showGuestDialog ? 'active' : ''}`}>
                       <span>1 guest</span>
                     </span>
-                    {
+                  </div>
+                </button>
+                {
                       props.showGuestDialog ?
                         <Guests /> : null
                     }
-                  </div>
-                </button>
               </div>
             </div>
             <div className="booking-button-container">
