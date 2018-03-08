@@ -767,3 +767,54 @@ input {
   color: #ffffff !important;
   padding-right: 6px !important;
 }
+
+.pricing-div {
+  margin-bottom: 8px;
+}
+
+.price-section-div {
+  display: table !important;
+  width: 100% !important;
+}
+
+.price-description-div {
+  display: table-cell !important;
+  width: 100% !important;
+  vertical-align: middle !important;
+}
+
+.price-description-span, .total-section-price-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #48484899 !important;
+  font-weight: 300 !important;
+  display: inline !important;
+}
+
+
+
+.total-section-price-div {
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.total-section-price-span {
+  white-space: nowrap !important;
+}
+
+.price-border {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+.price-description-span.total, .total-section-price-span.total {
+  font-weight: normal !important;
+  color: #484848 !important;
+}

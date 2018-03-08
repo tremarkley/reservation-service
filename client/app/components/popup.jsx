@@ -4,6 +4,7 @@ import dateShape from '../../data/propShapes';
 import Calendar from './calendar';
 import monthName from '../../data/months';
 import Guests from './guests';
+import Pricing from './pricing';
 
 const url = process.env.reservations_url || 'http://localhost:3002';
 
@@ -107,6 +108,10 @@ const Popup = (props) => {
                     }
               </div>
             </div>
+            {
+              props.checkInDate && props.checkOutDate ?
+                <Pricing /> : null
+            }
             <div className="booking-button-container">
               <button className="book-now-button">
                 <span className="book-now-span">
