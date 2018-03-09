@@ -911,3 +911,44 @@ input {
 .minimum-stay-warning-span {
   color: #d43242 !important;
 }
+
+.booking-confirmation-div {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
+  max-width: 376px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 200px;
+}
+
+.booking-confirmation-content {
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.booking-confirmation-span {
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  color: #48484899 !important;
+  font-weight: 300 !important;
+  display: inline !important;
+}
+
+.booking-confirmation-span.error {
+  color: #d43242 !important;
+}
+
+.close-dialog-container.booking {
+  padding-left: 10px;
+  padding-top: 10px;
+}

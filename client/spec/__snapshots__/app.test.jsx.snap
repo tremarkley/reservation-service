@@ -7,6 +7,16 @@ exports[`<App /> component Clicking book button should render popup component 1`
   <div
     className="content"
   >
+    <div
+      className="price-footer-div"
+    >
+      <span
+        className="price-footer-span"
+      />
+      <span
+        className="per-night-footer-span"
+      />
+    </div>
     <button
       className="bookButton"
       onClick={[Function]}
@@ -24,6 +34,16 @@ exports[`<App /> component Clicking book button should render popup component 2`
   <div
     className="content"
   >
+    <div
+      className="price-footer-div"
+    >
+      <span
+        className="price-footer-span"
+      />
+      <span
+        className="per-night-footer-span"
+      />
+    </div>
     <button
       className="bookButton"
       onClick={[Function]}
@@ -48,6 +68,7 @@ exports[`<App /> component Clicking book button should render popup component 2`
     id={1}
     incrementGuests={[Function]}
     maxGuests={1}
+    minimumNights={1}
     onClose={[Function]}
     popupClick={[Function]}
     reservationData={
@@ -666,6 +687,16 @@ exports[`<App /> component Clicking checkin button should render calendar compon
     <div
       className="content"
     >
+      <div
+        className="price-footer-div"
+      >
+        <span
+          className="price-footer-span"
+        />
+        <span
+          className="per-night-footer-span"
+        />
+      </div>
       <button
         className="bookButton"
         onClick={[Function]}
@@ -690,6 +721,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
       id={1}
       incrementGuests={[Function]}
       maxGuests={1}
+      minimumNights={1}
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
@@ -724,6 +756,19 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                   }
                 />
               </div>
+              <div
+                className="price-summary-div"
+              >
+                <span
+                  className="price-summary-span"
+                />
+                <span
+                  className="per-night-summary-span"
+                />
+              </div>
+              <div
+                className="price-summary-border"
+              />
               <div
                 className="reservations-dialog-container"
               >
@@ -974,6 +1019,16 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
     <div
       className="content"
     >
+      <div
+        className="price-footer-div"
+      >
+        <span
+          className="price-footer-span"
+        />
+        <span
+          className="per-night-footer-span"
+        />
+      </div>
       <button
         className="bookButton"
         onClick={[Function]}
@@ -998,6 +1053,7 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
       id={1}
       incrementGuests={[Function]}
       maxGuests={1}
+      minimumNights={1}
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
@@ -1032,6 +1088,19 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                   }
                 />
               </div>
+              <div
+                className="price-summary-div"
+              >
+                <span
+                  className="price-summary-span"
+                />
+                <span
+                  className="per-night-summary-span"
+                />
+              </div>
+              <div
+                className="price-summary-border"
+              />
               <div
                 className="reservations-dialog-container"
               >

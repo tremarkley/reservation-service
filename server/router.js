@@ -19,7 +19,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  reservations.makeReservation(req.params.id, req.body.checkInDate, req.body.checkOutDate)
+  reservations.makeReservation(
+    req.params.id,
+    req.body.params.checkInDate,
+    req.body.params.checkOutDate,
+  )
     .then((price) => {
       res.send({ price });
     })

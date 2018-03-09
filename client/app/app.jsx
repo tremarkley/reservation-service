@@ -30,6 +30,8 @@ class App extends React.Component {
       maxGuests: 1,
       nightlyPrice: undefined,
       minimumNights: 1,
+      showBookingConfirmation: false,
+      showBookingError: false,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -42,6 +44,11 @@ class App extends React.Component {
     this.decrementGuests = this.decrementGuests.bind(this);
     this.toggleGuestDialog = this.toggleGuestDialog.bind(this);
     this.closeGuestsDialog = this.closeGuestsDialog.bind(this);
+    this.generateBookingConfirmation = this.generateBookingConfirmation.bind(this);
+    this.generateBookingError = this.generateBookingError.bind(this);
+    this.bookNowClick = this.bookNowClick.bind(this);
+    this.closeBookingConfirmation = this.closeBookingConfirmation.bind(this);
+    this.closeBookingError = this.closeBookingError.bind(this);
   }
 
   componentDidMount() {
@@ -96,6 +103,76 @@ class App extends React.Component {
       checkOutDate: undefined,
       lastPossibleCheckOutDate: undefined,
       lastPossibleCheckInDate: undefined,
+    });
+  }
+
+  bookNowClick() {
+    if (this.state.checkInDate && this.state.checkOutDate) {
+      this.makeBooking();
+    }
+  }
+
+  makeBooking() {
+    const checkInDate = `${this.state.checkInDate.month}-${this.state.checkInDate.day}-${this.state.checkInDate.year}`;
+    const checkOutDate = `${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`;
+    axios.put(`${url}/${this.props.id}`, { params: { checkInDate, checkOutDate } })
+      .then(() => {
+        this.setState({
+          showBookingConfirmation: true,
+          lastPossibleCheckInDate: undefined,
+          lastPossibleCheckOutDate: undefined,
+          guests: {
+            adults: 1,
+            children: 0,
+            infants: 0,
+          },
+          reservationData: {},
+        });
+      })
+      .catch((err) => {
+        console.log(`error booking: ${err}`);
+        this.setState({ showBookingError: true });
+      });
+  }
+
+  generateBookingConfirmation() {
+    return (
+      <div className="booking-confirmation-div">
+        <div className="close-dialog-container booking">
+            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingConfirmation} />
+        </div>
+        <div className="booking-confirmation-content">
+          <span className="booking-confirmation-span">You're booked!</span>
+        </div>
+      </div>
+    );
+  }
+
+  generateBookingError() {
+    return (
+      <div className="booking-confirmation-div">
+        <div className="close-dialog-container booking">
+            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingError} />
+        </div>
+        <div className="booking-confirmation-content">
+          <span className="booking-confirmation-span error">Error Making Booking, Try Again</span>
+        </div>
+      </div>
+    );
+  }
+
+  closeBookingConfirmation() {
+    this.setState({
+      showBookingConfirmation: false,
+      checkInDate: undefined,
+      checkOutDate: undefined,
+      showPopup: false,
+    });
+  }
+
+  closeBookingError() {
+    this.setState({
+      showBookingError: false,
     });
   }
 
@@ -294,6 +371,13 @@ class App extends React.Component {
               closeGuestsDialog={this.closeGuestsDialog}
               nightlyPrice={this.state.nightlyPrice}
               minimumNights={this.state.minimumNights}
+              showBookingConfirmation={this.state.showBookingConfirmation}
+              generateBookingConfirmation={this.generateBookingConfirmation}
+              showBookingError={this.state.showBookingError}
+              generateBookingError={this.generateBookingError}
+              bookNowClick={this.bookNowClick}
+              closeBookingError={this.closeBookingError}
+              closeBookingConfirmation={this.closeBookingConfirmation}
             /> : null
         }
       </div>
