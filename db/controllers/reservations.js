@@ -27,7 +27,6 @@ const makeReservation = function makeReservation(listingId, checkInDate, checkOu
   return new Promise((resolve, reject) => {
     knex('dates').where('date', '>=', checkInDate).andWhere('date', '<', checkOutDate).select('id')
       .then((dateIdObjects) => {
-        console.log('returned date objects');
         const dateIds = [];
         for (let i = 0; i < dateIdObjects.length; i += 1) {
           dateIds.push(dateIdObjects[i].id);

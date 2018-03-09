@@ -255,7 +255,6 @@ class App extends React.Component {
 
   handleDateClick(day) {
     if (this.state.checkInActive) {
-      console.log(`check in: ${JSON.stringify(day)}`);
       const dayDate = new Date(`${day.month}-${day.day}-${day.year}`);
       // if check in date is later than current check out date then we need
       // to set checkout date to undefined
