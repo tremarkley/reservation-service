@@ -52,10 +52,15 @@ exports[`<App /> component Clicking book button should render popup component 2`
     </button>
   </div>
   <Popup
+    bookNowClick={[Function]}
     checkInActive={false}
     checkOutActive={false}
+    closeBookingConfirmation={[Function]}
+    closeBookingError={[Function]}
     closeGuestsDialog={[Function]}
     decrementGuests={[Function]}
+    generateBookingConfirmation={[Function]}
+    generateBookingError={[Function]}
     guests={
       Object {
         "adults": 1,
@@ -669,6 +674,8 @@ exports[`<App /> component Clicking book button should render popup component 2`
         ],
       }
     }
+    showBookingConfirmation={false}
+    showBookingError={false}
     showCalendar={false}
     showGuestDialog={false}
     toggleGuestDialog={[Function]}
@@ -705,10 +712,15 @@ exports[`<App /> component Clicking checkin button should render calendar compon
       </button>
     </div>
     <Popup
+      bookNowClick={[Function]}
       checkInActive={true}
       checkOutActive={false}
+      closeBookingConfirmation={[Function]}
+      closeBookingError={[Function]}
       closeGuestsDialog={[Function]}
       decrementGuests={[Function]}
+      generateBookingConfirmation={[Function]}
+      generateBookingError={[Function]}
       guests={
         Object {
           "adults": 1,
@@ -725,6 +737,8 @@ exports[`<App /> component Clicking checkin button should render calendar compon
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
+      showBookingConfirmation={false}
+      showBookingError={false}
       showCalendar={true}
       showGuestDialog={false}
       toggleGuestDialog={[Function]}
@@ -986,6 +1000,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
               >
                 <button
                   className="book-now-button"
+                  onClick={[Function]}
                 >
                   <span
                     className="book-now-span"
@@ -1037,10 +1052,15 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
       </button>
     </div>
     <Popup
+      bookNowClick={[Function]}
       checkInActive={false}
       checkOutActive={false}
+      closeBookingConfirmation={[Function]}
+      closeBookingError={[Function]}
       closeGuestsDialog={[Function]}
       decrementGuests={[Function]}
+      generateBookingConfirmation={[Function]}
+      generateBookingError={[Function]}
       guests={
         Object {
           "adults": 1,
@@ -1057,6 +1077,8 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
       onClose={[Function]}
       popupClick={[Function]}
       reservationData={Object {}}
+      showBookingConfirmation={false}
+      showBookingError={false}
       showCalendar={false}
       showGuestDialog={false}
       toggleGuestDialog={[Function]}
@@ -1196,6 +1218,7 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
               >
                 <button
                   className="book-now-button"
+                  onClick={[Function]}
                 >
                   <span
                     className="book-now-span"

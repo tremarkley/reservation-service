@@ -115,7 +115,7 @@ class App extends React.Component {
   makeBooking() {
     const checkInDate = `${this.state.checkInDate.month}-${this.state.checkInDate.day}-${this.state.checkInDate.year}`;
     const checkOutDate = `${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`;
-    axios.put(`${url}/${this.props.id}`, { params: { checkInDate, checkOutDate } })
+    axios.put(`${url}/${this.props.id}`, { checkInDate, checkOutDate })
       .then(() => {
         this.setState({
           showBookingConfirmation: true,

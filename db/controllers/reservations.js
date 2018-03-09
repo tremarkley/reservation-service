@@ -24,7 +24,6 @@ function getReservationDataForMonth(listingId, month, year) {
 
 const makeReservation = function makeReservation(listingId, checkInDate, checkOutDate) {
   let price = 0;
-  console.log(`in db controller: ${listingId}, ${JSON.stringify(checkInDate)}, ${JSON.stringify(checkOutDate)}`);
   return new Promise((resolve, reject) => {
     knex('dates').where('date', '>=', checkInDate).andWhere('date', '<', checkOutDate).select('id')
       .then((dateIdObjects) => {

@@ -19,10 +19,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+  console.log(`put: ${JSON.stringify(req.body)}`);
   reservations.makeReservation(
     req.params.id,
-    req.body.params.checkInDate,
-    req.body.params.checkOutDate,
+    req.body.checkInDate,
+    req.body.checkOutDate,
   )
     .then((price) => {
       res.send({ price });
