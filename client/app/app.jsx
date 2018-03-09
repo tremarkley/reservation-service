@@ -30,6 +30,8 @@ class App extends React.Component {
       maxGuests: 1,
       nightlyPrice: undefined,
       minimumNights: 1,
+      showBookingConfirmation: false,
+      showBookingError: false,
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.updateReservationData = this.updateReservationData.bind(this);
@@ -42,6 +44,7 @@ class App extends React.Component {
     this.decrementGuests = this.decrementGuests.bind(this);
     this.toggleGuestDialog = this.toggleGuestDialog.bind(this);
     this.closeGuestsDialog = this.closeGuestsDialog.bind(this);
+    this.generateBookingConfirmation = this.generateBookingConfirmation.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +100,35 @@ class App extends React.Component {
       lastPossibleCheckOutDate: undefined,
       lastPossibleCheckInDate: undefined,
     });
+  }
+
+  makeBooking() {
+    const checkInDate = `${this.state.checkInDate.month}-${this.state.checkInDate.day}-${this.state.checkInDate.year}`;
+    const checkOutDate = `${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`;
+    axios.put(`${url}/${this.props.id}`, { params: { checkInDate, checkOutDate } })
+      .then(() => {
+        this.setState({
+          showBookingConfirmation: true,
+          checkInDate: undefined,
+          checkOutDate: undefined,
+          lastPossibleCheckInDate: undefined,
+          lastPossibleCheckOutDate: undefined,
+          guests: {
+            adults: 1,
+            children: 0,
+            infants: 0,
+          },
+        });
+      })
+      .catch(() => {
+        this.setState({ showBookingError: true });
+      });
+  }
+
+  generateBookingConfirmation() {
+    <div className="booking-confirmation-div">
+
+    </div>
   }
 
   openCalendar() {
@@ -294,6 +326,8 @@ class App extends React.Component {
               closeGuestsDialog={this.closeGuestsDialog}
               nightlyPrice={this.state.nightlyPrice}
               minimumNights={this.state.minimumNights}
+              showBookingConfirmation={this.state.showBookingConfirmation}
+              generateBookingConfirmation={this.generateBookingConfirmation}
             /> : null
         }
       </div>
