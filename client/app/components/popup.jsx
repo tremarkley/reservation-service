@@ -20,14 +20,15 @@ const Popup = (props) => {
   if (props.checkInDate && props.checkOutDate) {
     isMinimumStay = props.minimumNights <= totalNights(props.checkInDate, props.checkOutDate);
   }
-  return (
-    <div
-      className="pop-up"
-      onClick={event => props.popupClick(event.target, datesDiv, checkInDiv, checkOutDiv, guestsDiv)}
-    >
-      <div className="pop-up-content">
-        <div className="inner-content">
-          { !props.showBookingConfirmation ?
+
+  if (!props.showBookingConfirmation && !props.showBookingError) {
+    return (
+      <div
+        className="pop-up"
+        onClick={event => props.popupClick(event.target, datesDiv, checkInDiv, checkOutDiv, guestsDiv)}
+      >
+        <div className="pop-up-content">
+          <div className="inner-content">
             <div className="inner-inner-content">
               <div className="close-dialog-container">
                 <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
@@ -143,7 +144,7 @@ const Popup = (props) => {
                   </div> : null
               }
               <div className="booking-button-container">
-                <button className="book-now-button">
+                <button className="book-now-button" onClick={props.bookNowClick}>
                   <span className="book-now-span">
                     <div className="book-now-div">
                       <span>Book</span>
@@ -151,9 +152,24 @@ const Popup = (props) => {
                   </span>
                 </button>
               </div>
-            </div> : props.generateBookingConfirmation()
-          }
+            </div>
+          </div>
         </div>
+      </div>
+    );
+  } else if (props.showBookingConfirmation) {
+    return (
+      <div className="pop-up">
+        <div className="pop-up-content">
+          {props.generateBookingConfirmation()}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="pop-up">
+      <div className="pop-up-content">
+        {props.generateBookingError()}
       </div>
     </div>
   );
@@ -193,6 +209,11 @@ Popup.propTypes = {
   minimumNights: PropTypes.number.isRequired,
   showBookingConfirmation: PropTypes.bool.isRequired,
   generateBookingConfirmation: PropTypes.func.isRequired,
+  showBookingError: PropTypes.bool.isRequired,
+  generateBookingError: PropTypes.func.isRequired,
+  bookNowClick: PropTypes.func.isRequired,
+  closeBookingError: PropTypes.func.isRequired,
+  closeBookingConfirmation: PropTypes.func.isRequired,
 };
 
 Popup.defaultProps = {

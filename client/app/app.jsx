@@ -45,6 +45,10 @@ class App extends React.Component {
     this.toggleGuestDialog = this.toggleGuestDialog.bind(this);
     this.closeGuestsDialog = this.closeGuestsDialog.bind(this);
     this.generateBookingConfirmation = this.generateBookingConfirmation.bind(this);
+    this.generateBookingError = this.generateBookingError.bind(this);
+    this.bookNowClick = this.bookNowClick.bind(this);
+    this.closeBookingConfirmation = this.closeBookingConfirmation.bind(this);
+    this.closeBookingError = this.closeBookingError.bind(this);
   }
 
   componentDidMount() {
@@ -102,6 +106,12 @@ class App extends React.Component {
     });
   }
 
+  bookNowClick() {
+    if (this.state.checkInDate && this.state.checkOutDate) {
+      this.makeBooking();
+    }
+  }
+
   makeBooking() {
     const checkInDate = `${this.state.checkInDate.month}-${this.state.checkInDate.day}-${this.state.checkInDate.year}`;
     const checkOutDate = `${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`;
@@ -109,8 +119,6 @@ class App extends React.Component {
       .then(() => {
         this.setState({
           showBookingConfirmation: true,
-          checkInDate: undefined,
-          checkOutDate: undefined,
           lastPossibleCheckInDate: undefined,
           lastPossibleCheckOutDate: undefined,
           guests: {
@@ -118,17 +126,54 @@ class App extends React.Component {
             children: 0,
             infants: 0,
           },
+          reservationData: {},
         });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(`error booking: ${err}`);
         this.setState({ showBookingError: true });
       });
   }
 
   generateBookingConfirmation() {
-    <div className="booking-confirmation-div">
+    return (
+      <div className="booking-confirmation-div">
+        <div className="close-dialog-container booking">
+            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingConfirmation} />
+        </div>
+        <div className="booking-confirmation-content">
+          <span className="booking-confirmation-span">You're booked!</span>
+        </div>
+      </div>
+    );
+  }
 
-    </div>
+  generateBookingError() {
+    return (
+      <div className="booking-confirmation-div">
+        <div className="close-dialog-container booking">
+            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingError} />
+        </div>
+        <div className="booking-confirmation-content">
+          <span className="booking-confirmation-span error">Error Making Booking, Try Again</span>
+        </div>
+      </div>
+    );
+  }
+
+  closeBookingConfirmation() {
+    this.setState({
+      showBookingConfirmation: false,
+      checkInDate: undefined,
+      checkOutDate: undefined,
+      showPopup: false,
+    });
+  }
+
+  closeBookingError() {
+    this.setState({
+      showBookingError: false,
+    });
   }
 
   openCalendar() {
@@ -328,6 +373,11 @@ class App extends React.Component {
               minimumNights={this.state.minimumNights}
               showBookingConfirmation={this.state.showBookingConfirmation}
               generateBookingConfirmation={this.generateBookingConfirmation}
+              showBookingError={this.state.showBookingError}
+              generateBookingError={this.generateBookingError}
+              bookNowClick={this.bookNowClick}
+              closeBookingError={this.closeBookingError}
+              closeBookingConfirmation={this.closeBookingConfirmation}
             /> : null
         }
       </div>

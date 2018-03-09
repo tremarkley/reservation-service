@@ -31,7 +31,7 @@ describe('Database Controller Methods', () => {
       expect.assertions(1);
       return expect(reservations.makeReservation(1, '1-1-2018', '1-4-2018')).rejects.toEqual(new Error('Reservation not available through dates!'));
     });
-    it('Should throw an error if dates are not all available', (done) => {
+    it('Should not update availability if dates are not all available', (done) => {
       expect.assertions(1);
       reservations.makeReservation(1, '1-1-2018', '1-4-2018')
         .catch(() => {
