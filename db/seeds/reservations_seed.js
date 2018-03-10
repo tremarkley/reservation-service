@@ -13,5 +13,8 @@ exports.seed = (knex, Promise) => knex('reservations').del()
       promises.push(knex('reservations').insert(reservationsData[i]));
     }
     return Promise.all(promises);
+  })
+  .catch((err) => {
+    console.log(`exception in seeding: ${err}`);
   });
 

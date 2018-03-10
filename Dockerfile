@@ -7,9 +7,8 @@ WORKDIR /src/app
 COPY . /src/app
 
 RUN npm install
-RUN npm run seed
 RUN npm run build
 
 
 EXPOSE 3002
-CMD [ "npm", "start" ]
+CMD npm run seed && npm start
