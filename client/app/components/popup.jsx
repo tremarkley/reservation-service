@@ -18,6 +18,7 @@ const Popup = (props) => {
   let isMinimumStay = false;
 
   if (props.checkInDate && props.checkOutDate) {
+    debugger;
     isMinimumStay = props.minimumNights <= totalNights(props.checkInDate, props.checkOutDate);
   }
 
