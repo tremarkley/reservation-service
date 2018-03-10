@@ -5,6 +5,9 @@ import axios from 'axios';
 import css from '../styles/styles.css';
 /*  eslint-enable no-unused-vars  */
 import Popup from './components/popup';
+import utils from './utils';
+
+const { totalNights } = utils;
 
 const url = process.env.reservations_url || 'http://localhost:3002';
 
@@ -107,7 +110,12 @@ class App extends React.Component {
   }
 
   bookNowClick() {
+    let isMinimumStay = false;
     if (this.state.checkInDate && this.state.checkOutDate) {
+      isMinimumStay = this.state.minimumNights <=
+        totalNights(this.state.checkInDate, this.state.checkOutDate);
+    }
+    if (isMinimumStay) {
       this.makeBooking();
     }
   }
