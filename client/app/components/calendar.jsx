@@ -46,7 +46,7 @@ class Calendar extends React.Component {
 
   getReservationData() {
     if (this.props.reservationData[`${this.state.month}-${this.state.year}`] === undefined) {
-      axios.get(`${url}/${this.props.id}`, { params: { month: this.state.month + 1, year: this.state.year } })
+      axios.get(`/${this.props.id}`, { params: { month: this.state.month + 1, year: this.state.year } })
         .then((response) => {
           this.props.updateReservationData(response.data, this.state.month, this.state.year);
         });

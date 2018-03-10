@@ -3,14 +3,14 @@ const path = require('path');
 module.exports = {
   test: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/reservations_test',
+    connection: 'postgres://postgres@172.17.0.2:5432/reservations_test',
     seeds: {
       directory: path.join(__dirname, '/db/seeds/test'),
     },
   },
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/reservations',
+    connection: 'postgres://postgres@172.17.0.2:5432/reservations',
     seeds: {
       directory: path.join(__dirname, '/db/seeds'),
     },

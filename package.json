@@ -17,7 +17,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p",
     "seed-test": "knex seed:run --env test",
-    "create-db": "psql postgres -f ./db/schema.sql",
+    "create-db": "node ./db/buildDbSchema.js",
     "create-db-test": "psql postgres -f ./db/schema_test.sql"
   },
   "jest": {

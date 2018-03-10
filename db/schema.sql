@@ -1,4 +1,3 @@
-DROP DATABASE reservations;
 CREATE DATABASE reservations;
 \connect reservations;
 
