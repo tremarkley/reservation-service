@@ -58,7 +58,7 @@ class App extends React.Component {
     const currentDate = new Date();
     const month = currentDate.getMonth();
     const year = currentDate.getFullYear();
-    axios.get(`${url}/${this.props.id}`, { params: { month: month + 1, year } })
+    axios.get(`/${this.props.id}`, { params: { month: month + 1, year } })
       .then((response) => {
         const maxGuests = response.data[0].maximum_guests;
         const nightlyPrice = +response.data[0].price;
@@ -123,7 +123,7 @@ class App extends React.Component {
   makeBooking() {
     const checkInDate = `${this.state.checkInDate.month}-${this.state.checkInDate.day}-${this.state.checkInDate.year}`;
     const checkOutDate = `${this.state.checkOutDate.month}-${this.state.checkOutDate.day}-${this.state.checkOutDate.year}`;
-    axios.put(`${url}/${this.props.id}`, { checkInDate, checkOutDate })
+    axios.put(`/${this.props.id}`, { checkInDate, checkOutDate })
       .then(() => {
         this.setState({
           showBookingConfirmation: true,
