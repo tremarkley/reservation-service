@@ -147,7 +147,7 @@ class App extends React.Component {
     return (
       <div className="booking-confirmation-div">
         <div className="close-dialog-container booking">
-            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingConfirmation} />
+            <button className="close-button" style={{ backgroundImage: 'url(/images/x-icon.png)' }} onClick={this.closeBookingConfirmation} />
         </div>
         <div className="booking-confirmation-content">
           <span className="booking-confirmation-span">You're booked!</span>
@@ -160,7 +160,7 @@ class App extends React.Component {
     return (
       <div className="booking-confirmation-div">
         <div className="close-dialog-container booking">
-            <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={this.closeBookingError} />
+            <button className="close-button" style={{ backgroundImage: 'url(/images/x-icon.png)' }} onClick={this.closeBookingError} />
         </div>
         <div className="booking-confirmation-content">
           <span className="booking-confirmation-span error">Error Making Booking, Try Again</span>
