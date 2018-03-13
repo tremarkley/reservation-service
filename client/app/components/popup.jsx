@@ -7,7 +7,7 @@ import Guests from './guests';
 import Pricing from './pricing';
 import utils from '../utils';
 
-const url = process.env.reservations_url || 'http://localhost:3002';
+const url = process.env.reservations_url || 'http://localhost:3008';
 const { totalNights } = utils;
 
 const Popup = (props) => {
