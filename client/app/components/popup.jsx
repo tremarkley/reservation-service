@@ -18,7 +18,6 @@ const Popup = (props) => {
   let isMinimumStay = false;
 
   if (props.checkInDate && props.checkOutDate) {
-    debugger;
     isMinimumStay = props.minimumNights <= totalNights(props.checkInDate, props.checkOutDate);
   }
 
@@ -32,7 +31,7 @@ const Popup = (props) => {
           <div className="inner-content">
             <div className="inner-inner-content">
               <div className="close-dialog-container">
-                <button className="close-button" style={{ backgroundImage: `url(${url}/images/x-icon.png)` }} onClick={props.onClose} />
+                <button className="close-button" style={{ backgroundImage: `url(/images/x-icon.png)` }} onClick={props.onClose} />
               </div>
               <div className="price-summary-div">
                 <span className="price-summary-span">{`${props.nightlyPrice !== undefined ? `$${props.nightlyPrice.toLocaleString()}` : ''}`}</span>

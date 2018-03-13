@@ -7,7 +7,7 @@ services:
       database:
         condition: service_healthy
     ports:
-      - '80:3008'
+      - '80:3002'
 
   database:
     build: db/
