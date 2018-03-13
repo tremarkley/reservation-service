@@ -765,7 +765,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                   onClick={[Function]}
                   style={
                     Object {
-                      "backgroundImage": "url(http://localhost:3002/images/x-icon.png)",
+                      "backgroundImage": "url(/images/x-icon.png)",
                     }
                   }
                 />
@@ -866,7 +866,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                               onClick={[Function]}
                               style={
                                 Object {
-                                  "backgroundImage": "url(http://localhost:3002/images/left-arrow.png)",
+                                  "backgroundImage": "url(/images/left-arrow.png)",
                                 }
                               }
                             />
@@ -880,7 +880,7 @@ exports[`<App /> component Clicking checkin button should render calendar compon
                               onClick={[Function]}
                               style={
                                 Object {
-                                  "backgroundImage": "url(http://localhost:3002/images/right-arrow.png)",
+                                  "backgroundImage": "url(/images/right-arrow.png)",
                                 }
                               }
                             />
@@ -1105,7 +1105,7 @@ exports[`<App /> component Clicking outside of checkin/checkout button should cl
                   onClick={[Function]}
                   style={
                     Object {
-                      "backgroundImage": "url(http://localhost:3002/images/x-icon.png)",
+                      "backgroundImage": "url(/images/x-icon.png)",
                     }
                   }
                 />
